@@ -1,6 +1,6 @@
 ﻿html,body,div,dl,dt,dd,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,em,button{margin:0;padding:0;border:0;list-style:none;}
-html{width:100%;height:100%;}
-body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#333;height:100%;line-height:1.8em;background:#fff;}
+html{width:100%;height:100%;overflow-x:hidden;}
+body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#333;height:100%;line-height:1.8em;background:#fff;overflow-x:hidden;}
 .nfont{font-family:'Georgia','microsoft yahei','SimHei';}
 .hide{display:none;}
 .show{display:block;}
@@ -68,7 +68,7 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 .share_bt{background: url(../img/share_bt.png) no-repeat center;background-size:100% auto;width:80%;height:14%;margin:0 auto;}
 .gift_bt{background: url(../img/gift_bt.png) no-repeat center;background-size:100% auto;width:80%;height:14%;margin:0 auto;}
 .killnum01{font-size:6em;color:#610b03;font-family: 'Georgia';margin:23% 14% 0 0;clear:both;}
-.killnum02{font-size:3em;margin:22% 0 0 53%;clear:both;-webkit-text-fill-color:#610b03;-webkit-text-stroke: 1px white;font-weight:bold;}
+.killnum02{font-size:3em;margin:22% 0 0 53%;clear:both;color:#610b03;font-weight:bold;}
 
 #game_pane{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%;display:none;}
 #game_bg{position:absolute;background: url(../img/gamebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
@@ -96,7 +96,14 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 /* iphone 6 */
 @media only screen and (device-height:667px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
 	#start_div{bottom:8%;}
-	#home_gj{top:50%;}
+	#home_gj{top:52%;}
+	#pop_div{height:76%;}
+	#scorebar{margin-top:8%;}
+	#game_boss{margin-top:56%;}
+	#boss_talk{margin-top:14%;}
+	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
+
+
 }
 
 /* iphone 6plus */

@@ -1,7 +1,7 @@
 $(function(){
 
   //页面加载完毕淡入
-  $("#loadmask").fadeOut(1500);
+  $("#loadmask").fadeOut(2000);
 
   
   //mask resize
@@ -23,10 +23,11 @@ $(function(){
     $("#real_play").click(function(){
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
-       boss_enter();
+      boss_enter();
 
       //临时控制--测试用（显示失败后画面）
-      //$("#mask_div,#pop_div,#all_fail").show();
+      //$("#game_guide").hide();
+      //$("#mask_div,#pop_div,#def_fail").show();
 
     })
  
@@ -112,5 +113,5 @@ function boss_enter(){
   var boss_id = random(1,3);
   var boss_talk = random(1,3);
   $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"36%",opacity:1},1400);
-  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1000).animate({opacity:1},2000).delay(4000).animate({opacity:0},1200);
+  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(2000).animate({opacity:1},2000).delay(4000).animate({opacity:0},1200);
 }
