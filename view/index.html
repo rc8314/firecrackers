@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年兽</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../assets/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="main">
+<div id="mask_div"></div>
+
+
+<!-- 游戏首屏 -->
+<div id="home_box">
+	<div id="home_bg"></div>
+	<div id="zyan"></div>
+	<div id="home_gj"></div>
+	<div id="home_xgj"></div>
+</div>
+
+
+<!-- home开始 -->
+<div id="start_div">
+	<div id="start_bt"></div>
+</div>
+
+
+<!-- 永远显示层 -->
+<div id="denglong_box">
+	<div id="left_dl"></div>
+	<div id="right_dl"></div>
+	<div id="dltit_bar"></div>
+</div>
+
+
+<!-- pop层 -->
+<div id="pop_div">
+	<div id="pop_close"></div>
+
+	<!-- 游戏引导 -->
+	<div id="game_guide">
+	</div>
+
+	<!-- 游戏失败 -->
+	<!-- 一次都没有过关 -->
+	<div id="all_fail" class="hide">
+		<div class="fail_box"></div>
+		<div class="play_again"></div>
+		<div class="share_bt"></div>
+	</div>
+	<!-- 为至少有一次有过关 -->
+	<div id="def_fail" class="hide">
+		<div class="fail_box">
+			<div class="kill_num killnum01 fr">25</div>
+			<div class="kill_num killnum02 fl">25</div>
+		</div>
+		<div class="play_again"></div>
+		<div class="share_bt"></div>
+	</div>
+</div>
+
+
+</div>
+</body>
+</html>
+<script src="../assets/js/jquery-1.7.1.min.js"></script>
+<script src="../assets/js/springMove.js" type="text/javascript"></script>
+<script src="../assets/js/script.js" type="text/javascript"></script>
