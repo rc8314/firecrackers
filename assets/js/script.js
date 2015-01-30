@@ -1,7 +1,7 @@
 $(function(){
 
   //页面加载完毕淡入
-  $("#loadmask").fadeOut(2000);
+  $("#loadmask").fadeOut(1500);
 
   
   //mask resize
@@ -21,10 +21,13 @@ $(function(){
 
     //游戏start开始
     $("#real_play").click(function(){
-      $("#mask_div,#pop_div,#start_div,#home_box").hide();
+      $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
+      $("#game_pane").fadeIn();
+       boss_enter();
+
       //临时控制--测试用（显示失败后画面）
-      $("#game_guide").hide();
-      $("#mask_div,#pop_div,#all_fail").show();
+      //$("#mask_div,#pop_div,#all_fail").show();
+
     })
  
     //pop close 点击
@@ -96,4 +99,18 @@ function zyan(){
 function play_again(){
   $("#mask_div,#pop_div").hide();
   //
+}
+
+
+//获取范围内的随机数
+ function random(min,max){
+    return Math.floor(min+Math.random()*(max-min));
+}
+
+//随机boss及文字
+function boss_enter(){
+  var boss_id = random(1,3);
+  var boss_talk = random(1,3);
+  $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"36%",opacity:1},1400);
+  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1000).animate({opacity:1},2000).delay(4000).animate({opacity:0},1200);
 }

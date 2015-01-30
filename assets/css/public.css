@@ -46,14 +46,14 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 
 
 /* 基础默认css 适应iphone5 */
-#home_box{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%}
+#home_box{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%;}
 #home_bg{position:absolute;background: url(../img/homebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
 #zyan{position:absolute;background: url(../img/zyan.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;display:none;}
 #home_gj{position:absolute;background: url(../img/ssdl.png) no-repeat;background-size:100% 100%;width:100%;height:24%;top:50%;}
 #start_div{position:absolute;bottom:6%;width:100%;height:20%;margin: 0 auto;z-index:198;}
 #start_bt{background: url(../img/start.png) no-repeat bottom center;background-size:100% auto;width:50%;height:100%;margin: 0 auto;}
 
-#pop_div{z-index:312;position:absolute;background: url(../img/popbg.png) no-repeat top center;background-size:100% auto;width:100%;height:60%;top:12%;display:none;}
+#pop_div{z-index:312;position:absolute;background: url(../img/popbg.png) no-repeat top center;background-size:100% auto;width:100%;height:70%;top:12%;display:none;}
 #pop_close{position:absolute;background: url(../img/pob_close.png) no-repeat top center;background-size:100% auto;width:100%;height:10%;margin-top:-12%;}
 #all_fail{background: url(../img/all_fail.png) no-repeat top center;background-size:100% auto;width:100%;height:100%;}
 #def_fail{background: url(../img/def_fail.png) no-repeat top center;background-size:100% auto;width:100%;height:100%;}
@@ -63,11 +63,28 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 #guide_txt{background: url(../img/gudtxt.png) no-repeat top center;background-size:100% auto;width:100%;height:30%;margin: 0 auto;}
 #real_play{background: url(../img/real_start.png) no-repeat top center;background-size:100% auto;width:80%;height:15%;margin: 0 auto;}
 
-.fail_box{width:100%;height:66%;}
+.fail_box{width:100%;height:58%;}
 .play_again{background: url(../img/play_again.png) no-repeat center;background-size:100% auto;width:40%;height:10%;margin:0 auto;}
-.share_bt{background: url(../img/share_bt.png) no-repeat center;background-size:100% auto;width:80%;height:20%;margin:0 auto;}
+.share_bt{background: url(../img/share_bt.png) no-repeat center;background-size:100% auto;width:80%;height:14%;margin:0 auto;}
+.gift_bt{background: url(../img/gift_bt.png) no-repeat center;background-size:100% auto;width:80%;height:14%;margin:0 auto;}
 .killnum01{font-size:6em;color:#610b03;font-family: 'Georgia';margin:23% 14% 0 0;clear:both;}
 .killnum02{font-size:3em;margin:22% 0 0 53%;clear:both;-webkit-text-fill-color:#610b03;-webkit-text-stroke: 1px white;font-weight:bold;}
+
+#game_pane{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%;display:none;}
+#game_bg{position:absolute;background: url(../img/gamebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
+#scorebar{position:absolute;background: url(../img/scorebar.png) no-repeat top center;background-size: 100% auto;width: 100%;height:10%;margin-top:4%;text-align:center;}
+#scorebar div{font-size:2.6em;color:#fff;width:15%;margin: 4% auto;}
+
+#game_boss{position:absolute;width: 100%;height:4%;margin-top:42%;opacity:0;}
+.boss_1{background: url(../img/boss_1.png) no-repeat top center;background-size:auto 100%;}
+.boss_2{background: url(../img/boss_2.png) no-repeat top center;background-size:auto 100%;}
+.boss_3{background: url(../img/boss_3.png) no-repeat top center;background-size:auto 100%;}
+#game_sky{position:absolute;background: url(../img/sky.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
+#boss_talk{position:absolute;width: 100%;height:80%;margin-top:6%;opacity:0;}
+.boss_talk_1{background: url(../img/boss_talk_1.png) no-repeat top center;background-size:auto 100%;}
+.boss_talk_2{background: url(../img/boss_talk_2.png) no-repeat top center;background-size:auto 100%;}
+.boss_talk_3{background: url(../img/boss_talk_3.png) no-repeat top center;background-size:auto 100%;}
+
 
 /* iphone 4 */
 @media only screen and (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
@@ -80,4 +97,9 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 @media only screen and (device-height:667px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
 	#start_div{bottom:8%;}
 	#home_gj{top:50%;}
+}
+
+/* iphone 6plus */
+@media only screen and (device-height:736px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
+	
 }
