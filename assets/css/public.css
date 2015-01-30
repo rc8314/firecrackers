@@ -1,0 +1,83 @@
+﻿html,body,div,dl,dt,dd,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,em,button{margin:0;padding:0;border:0;list-style:none;}
+html{width:100%;height:100%;}
+body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#333;height:100%;line-height:1.8em;background:#fff;}
+.nfont{font-family:'Georgia','microsoft yahei','SimHei';}
+.hide{display:none;}
+.show{display:block;}
+.pointer{cursor:pointer;}
+.fl{float:left;}
+.fr{float:right;}
+.vm{vertical-align:middle;}
+.vb{vertical-align:bottom;}
+.bold{font-weight:bold;}
+.blk{color:#333}
+.white{color:#fff;}
+.blue{color:#0366a1;}
+.gray{color:#797979;}
+.gray2{color:#e4e4e4;}
+.tcenter{text-align:center;}
+.tleft{text-align:left;}
+.tright{text-align:right;}
+.clear{clear:both;height:1em;}
+.f12{font-size:1.2em;}
+.f14{font-size:1.4em;}
+.f16{font-size:1.6em;}
+.f18{font-size:1.8em;}
+.f20{font-size:2em;}
+.f22{font-size:2.2em;}
+.f24{font-size:2.4em;}
+.f26{font-size:2.6em;}
+.f28{font-size:2.8em;}
+.f30{font-size:3em;}
+.f36{font-size:3.6em;}
+.f50{font-size:5em;}
+.cp{position:absolute;}
+.autop {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.autom{margin:0 auto;}
+#mask_div{position:fixed;z-index:311;top:0;left:0;display:none;zoom:1;background:rgba(0, 0, 0, 1);filter:Alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7; background:rgba(0, 0, 0, 0.7)!important;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)!important;height:100%;width:100%;}
+
+
+body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
+#loadmask{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;position:absolute;width:100%;height:100%;z-index:300;}
+#dltit_bar{position:absolute;z-index:100;background:url(../img/bg_titbar.png) no-repeat;background-size:100% auto;width:100%;height:8em;}
+#denglong_box{width:100%;z-index:200;margin-top:1em;position:absolute;}
+#left_dl{position:absolute;z-index:99;background:url(../img/left_dl.png) no-repeat;background-size:100% auto;width:35%;height:20em;margin-top:13%;left:-2em;}
+#right_dl{position:absolute;z-index:99;background:url(../img/right_dl.png) no-repeat;background-size:100% auto;width:35%;height:20em;margin-top:12.4%;right:-1.6em;}
+
+
+/* 基础默认css 适应iphone5 */
+#home_box{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%}
+#home_bg{position:absolute;background: url(../img/homebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
+#zyan{position:absolute;background: url(../img/zyan.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;display:none;}
+#home_gj{position:absolute;background: url(../img/ssdl.png) no-repeat;background-size:100% 100%;width:100%;height:24%;top:50%;}
+#start_div{position:absolute;bottom:6%;width:100%;height:20%;margin: 0 auto;z-index:198;}
+#start_bt{background: url(../img/start.png) no-repeat bottom center;background-size:100% auto;width:50%;height:100%;margin: 0 auto;}
+
+#pop_div{z-index:312;position:absolute;background: url(../img/popbg.png) no-repeat top center;background-size:100% auto;width:100%;height:60%;top:12%;display:none;}
+#pop_close{position:absolute;background: url(../img/pob_close.png) no-repeat top center;background-size:100% auto;width:100%;height:10%;margin-top:-12%;}
+#all_fail{background: url(../img/all_fail.png) no-repeat top center;background-size:100% auto;width:100%;height:100%;}
+#def_fail{background: url(../img/def_fail.png) no-repeat top center;background-size:100% auto;width:100%;height:100%;}
+
+#game_guide{width:100%;height:100%;}
+#guide_mm{width:100%;height:49%;}
+#guide_txt{background: url(../img/gudtxt.png) no-repeat top center;background-size:100% auto;width:100%;height:30%;margin: 0 auto;}
+#real_play{background: url(../img/real_start.png) no-repeat top center;background-size:100% auto;width:80%;height:15%;margin: 0 auto;}
+
+.fail_box{width:100%;height:66%;}
+.play_again{background: url(../img/play_again.png) no-repeat center;background-size:100% auto;width:40%;height:10%;margin:0 auto;}
+.share_bt{background: url(../img/share_bt.png) no-repeat center;background-size:100% auto;width:80%;height:20%;margin:0 auto;}
+.killnum01{font-size:6em;color:#610b03;font-family: 'Georgia';margin:23% 14% 0 0;clear:both;}
+.killnum02{font-size:3em;margin:22% 0 0 53%;clear:both;-webkit-text-fill-color:#610b03;-webkit-text-stroke: 1px white;font-weight:bold;}
+
+/* iphone 4 */
+@media only screen and (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
+	#start_div{bottom:3%;}
+	#home_gj{top:58%;}
+	#pop_div{height:70%;top:15%;}
+}
+
+/* iphone 6 */
+@media only screen and (device-height:667px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
+	#start_div{bottom:8%;}
+	#home_gj{top:50%;}
+}
