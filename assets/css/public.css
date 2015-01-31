@@ -1,6 +1,6 @@
 ﻿html,body,div,dl,dt,dd,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,em,button{margin:0;padding:0;border:0;list-style:none;}
-html{width:100%;height:100%;overflow-x:hidden;}
-body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#333;height:100%;line-height:1.8em;background:#fff;overflow-x:hidden;}
+html{width:100%;height:100%;overflow:hidden;}
+body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#333;height:100%;line-height:1.8em;background:#fff;overflow:hidden;}
 .nfont{font-family:'Georgia','microsoft yahei','SimHei';}
 .hide{display:none;}
 .show{display:block;}
@@ -79,11 +79,43 @@ body{background:url(../img/bg.png) no-repeat fixed;background-size:100% 100%;}
 .boss_1{background: url(../img/boss_1.png) no-repeat top center;background-size:auto 100%;}
 .boss_2{background: url(../img/boss_2.png) no-repeat top center;background-size:auto 100%;}
 .boss_3{background: url(../img/boss_3.png) no-repeat top center;background-size:auto 100%;}
+.boss_over_1{background: url(../img/boss_over_1.png) no-repeat top center;background-size:auto 100%;}
+.boss_over_2{background: url(../img/boss_over_2.png) no-repeat top center;background-size:auto 100%;}
+.boss_over_3{background: url(../img/boss_over_3.png) no-repeat top center;background-size:auto 100%;}
 #game_sky{position:absolute;background: url(../img/sky.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
 #boss_talk{position:absolute;width: 100%;height:80%;margin-top:6%;opacity:0;}
 .boss_talk_1{background: url(../img/boss_talk_1.png) no-repeat top center;background-size:auto 100%;}
 .boss_talk_2{background: url(../img/boss_talk_2.png) no-repeat top center;background-size:auto 100%;}
 .boss_talk_3{background: url(../img/boss_talk_3.png) no-repeat top center;background-size:auto 100%;}
+
+#bz_box{position:absolute;width:100%;height:100%;}
+#bz{background: url(../img/bz.png) no-repeat top center;background-size: 100% auto;width: 20%;height:20%;margin:106% auto 0 auto;}
+#bzgif_box{position:absolute;width:100%;height:100%;}
+#bzgif_pane{position: absolute;width:100%;height: 100%;text-align: center;}
+#bzgif{display:none;background: url(../img/bzgif.png) no-repeat top center;background-size: 100% auto;width: 20%;height:20%;margin:106% auto 0 auto;}
+#bigfire{position:absolute;8width:100%;height:20%;margin-top:50%;text-align:center;display: none;}
+#bigfire img{width:20%;}
+#ctl_box{position:absolute;width:100%;height:100%;}
+#fire_line_pane{width:84%;margin:80% auto 0 auto;height:20%;}
+#fire_line{background:url(../img/fline.png) no-repeat bottom center;background-size:auto 90%;height:20%;position:absolute;width:84%;}
+#hover_pane{
+background: #b30e0e;
+border-top: 10px solid #fff;
+border-bottom: 10px solid #fff;
+height: 2px;
+margin-top: 0;
+position: absolute;
+width: 84%;
+border-left: 0;
+border-right: 0;
+opacity: 0.8;
+}
+#fire_gif{position:absolute;width:84%;margin-top:0;text-align:center;}
+#fire_gif img{width:10%;}
+
+
+
+
 
 
 /* iphone 4 */

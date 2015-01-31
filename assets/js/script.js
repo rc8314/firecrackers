@@ -2,8 +2,8 @@ $(function(){
 
   //页面加载完毕淡入
   $("#loadmask").fadeOut(2000);
+		
 
-  
   //mask resize
     $("#mask_div").css("height",document.body.clientHeight+'px');
     $("#mask_div").css("width",document.body.scrollWidth+'px');
@@ -24,10 +24,7 @@ $(function(){
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
       boss_enter();
-
-      //临时控制--测试用（显示失败后画面）
-      //$("#game_guide").hide();
-      //$("#mask_div,#pop_div,#def_fail").show();
+      hover_pane();
 
     })
  
@@ -42,7 +39,19 @@ $(function(){
     })
   
   
-  
+  	//临时测试模拟触发操纵
+  	var test = 0;
+  	$("#bz").click(function(){
+  	  if (test<3){
+  	    //成功
+  	    test=test+1;
+  	    suss_game(); 
+  	  }else{
+  	    //失败
+  	    test = 0
+        $("#mask_div,#pop_div,#def_fail").show();
+  	  }	
+  	})
   
   
   
@@ -99,6 +108,8 @@ function zyan(){
 //再玩一次
 function play_again(){
   $("#mask_div,#pop_div").hide();
+  $("#scorebar div").html(1);
+  boss_animate();
   //
 }
 
@@ -113,5 +124,48 @@ function boss_enter(){
   var boss_id = random(1,3);
   var boss_talk = random(1,3);
   $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"36%",opacity:1},1400);
-  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(2000).animate({opacity:1},2000).delay(4000).animate({opacity:0},1200);
+  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1500).animate({opacity:0},1200)
+};
+
+
+
+//随机成功区域
+function hover_pane(){
+  var hover_red = random(2,3);
+  var hover_border = random(6,14);
+  var hover_mgtop = random(4,12)+8;
+  $("#hover_pane").show().css('height',hover_red+'px').css('border-top',hover_border+'px solid #fff').css('border-bottom',hover_border+'px solid #fff').css('margin-top',hover_mgtop + '%');
 }
+
+
+//成功后动画
+function suss_game(){
+  var suss_boss = random(1,3);
+  $("#game_boss").addClass("boss_over_"+suss_boss).delay(3000).animate({opacity:0},1200);
+  $("#hover_pane").hide();
+  $("#ctl_box,#bz_box").hide();
+  rotate("#bzgif");
+  $("#bigfire").delay(900).fadeIn().delay(2500).fadeOut();
+  setTimeout(boss_animate,4300);
+
+}
+
+
+
+//再生产boss入场动画，适用于失败再玩一次和成功后继续时
+function boss_animate(){
+  $("#game_boss,#boss_talk").remove();
+  $("#ctl_box,#bz_box").fadeIn();
+  $("#bzgif").css('margin-top','106%');
+  $("#game_sky").before("<div id='game_boss'></div>");
+  $("#game_sky").after("<div id='boss_talk'></div>");
+  boss_enter();
+  hover_pane();
+}
+
+
+//旋转鞭炮
+function rotate(rotate_name) {
+	$(rotate_name).show().animate({rotate: '360',marginTop:'50%'}, 900).delay(2600).fadeOut();
+}
+
