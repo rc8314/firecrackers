@@ -15,13 +15,17 @@ $(function(){
 
 
     //home开始start,出现游戏引导
+    var gudietime;
     $("#start_bt").click(function(){
       $("#mask_div,#pop_div").show();
       guide_animate();
+      gudietime = setInterval(guide_animate, 3000);
+
     })
 
     //游戏start开始
     $("#real_play").click(function(){
+      clearTimeout(gudietime);
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
       boss_enter();
@@ -124,7 +128,7 @@ function play_again(){
 function boss_enter(){
   var boss_id = random(1,3);
   var boss_talk = random(1,3);
-  $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"36%",opacity:1},1400);
+  $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"40%",opacity:1},1400);
   $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1500).animate({opacity:0},1200)
 };
 
@@ -175,7 +179,6 @@ function rotate(rotate_name) {
 function guide_animate(){
 	$(".hand_on").delay(500).fadeIn(10).delay(2000).fadeOut(10);
 	$(".hand_off").delay(500).fadeOut(10).delay(2000).fadeIn(10);
-	$("#guide_fire").delay(500).fadeIn(10).animate({marginTop:'20%'},2000).fadeOut(10).animate({marginTop:'12%'},10);
-	$("#guide_fline").delay(500).animate({marginTop:'20%'},2020).animate({marginTop:'12%'},10);
-	gudietime = setInterval(guide_animate, 3000);
+	$("#guide_fire").delay(500).fadeIn(10).animate({marginTop:'20%'},2000).fadeOut(10).animate({marginTop:'14%'},10);
+	$("#guide_fline").delay(500).animate({marginTop:'20%'},2020).animate({marginTop:'14%'},10);
 }

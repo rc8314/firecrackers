@@ -71,8 +71,8 @@ border-left: 0;
 border-right: 0;
 opacity: 0.8;}
 #guide_bz{background: url(../img/bz.png) no-repeat top center;background-size:auto 100%;width:100%;height:18%;margin-top:36%;position: absolute;}
-#guide_fline{background:url(../img/fline.png) no-repeat bottom center;background-size:auto 90%;height:20%;position:absolute;width:100%;margin-top:12%;}
-#guide_fire{position:absolute;width:100%;margin-top:12%;text-align:center;height:20%;display:none;}
+#guide_fline{background:url(../img/fline.png) no-repeat bottom center;background-size:auto 90%;height:20%;position:absolute;width:100%;margin-top:14%;}
+#guide_fire{position:absolute;width:100%;margin-top:14%;text-align:center;height:20%;display:none;}
 #guide_fire img{width:10%;}
 #guide_hand{position:absolute;width:100%;height:16%;margin-top: 30%;}
 .hand_off{position:absolute;width:100%;height:16%;margin-top: 30%;background:url(../img/hand_off.png) no-repeat top center;background-size:auto 100%;}
@@ -149,8 +149,7 @@ opacity: 0.8;
 	#home_gj{top:52%;}
 	#pop_div{height:76%;}
 	#scorebar{margin-top:8%;}
-	#game_boss{margin-top:56%;}
-	#boss_talk{margin-top:14%;}
+	#boss_talk{margin-top:10%;}
 	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 
 
