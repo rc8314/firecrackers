@@ -91,7 +91,7 @@ opacity: 0.8;}
 #game_pane{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%;display:none;}
 #game_bg{position:absolute;background: url(../img/gamebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
 #scorebar{position:absolute;background: url(../img/scorebar.png) no-repeat top center;background-size: 100% auto;width: 100%;height:10%;margin-top:4%;text-align:center;}
-#scorebar div{font-size:2.6em;color:#fff;width:15%;margin: 4% auto;}
+#scorebar div{font-size:2.6em;color:#fff;width:15%;margin:5% auto 0 auto;}
 
 #game_boss{position:absolute;width: 100%;height:4%;margin-top:42%;opacity:0;}
 .boss_1{background: url(../img/boss_1.png) no-repeat top center;background-size:auto 100%;}
@@ -138,9 +138,20 @@ opacity: 0.8;
 
 /* iphone 4 */
 @media only screen and (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
-	#start_div{bottom:3%;}
+	#start_div{bottom:1%;}
+	#left_dl{width:30%;margin-top:18%;}
+	#right_dl{width:30%;margin:18%;}
 	#home_gj{top:58%;}
-	#pop_div{height:70%;top:15%;}
+	#pop_div{height:94%;top:15%;}
+	##guide_txt{height:32%;}
+	#real_play{height:18%}
+	#denglong_box{height:45%;}
+	#guide_bz{height:20%;margin-top:32%}
+	#scorebar{height:14%}
+	#boss_talk{margin-top:22%;}
+	#fire_line{height: 28%;}
+
+
 }
 
 /* iphone 6 */
