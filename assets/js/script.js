@@ -17,6 +17,7 @@ $(function(){
     //home开始start,出现游戏引导
     $("#start_bt").click(function(){
       $("#mask_div,#pop_div").show();
+      guide_animate();
     })
 
     //游戏start开始
@@ -169,3 +170,12 @@ function rotate(rotate_name) {
 	$(rotate_name).show().animate({rotate: '360',marginTop:'50%'}, 900).delay(2600).fadeOut();
 }
 
+
+//游戏引导动画
+function guide_animate(){
+	$(".hand_on").delay(500).fadeIn(10).delay(2000).fadeOut(10);
+	$(".hand_off").delay(500).fadeOut(10).delay(2000).fadeIn(10);
+	$("#guide_fire").delay(500).fadeIn(10).animate({marginTop:'20%'},2000).fadeOut(10).animate({marginTop:'12%'},10);
+	$("#guide_fline").delay(500).animate({marginTop:'20%'},2020).animate({marginTop:'12%'},10);
+	gudietime = setInterval(guide_animate, 3000);
+}
