@@ -143,7 +143,7 @@ opacity: 0.8;
 	#right_dl{width:30%;margin:18%;}
 	#home_gj{top:58%;}
 	#pop_div{height:94%;top:15%;}
-	##guide_txt{height:32%;}
+	#guide_txt{height:32%;}
 	#real_play{height:18%}
 	#denglong_box{height:45%;}
 	#guide_bz{height:20%;margin-top:32%}
@@ -153,6 +153,13 @@ opacity: 0.8;
 
 
 }
+
+/* iphone 5 */
+@media only screen and (device-height:568px) and (max-device-width:640px) and (-webkit-min-device-pixel-ratio:2) {
+
+}
+
+
 
 /* iphone 6 */
 @media only screen and (device-height:667px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
@@ -168,5 +175,12 @@ opacity: 0.8;
 
 /* iphone 6plus */
 @media only screen and (device-height:736px) and (max-device-width:750px) and (-webkit-min-device-pixel-ratio:2) {
-	
+	#start_div{bottom:2%;}
+	#pop_div{height:82%;}
+	#guide_bz{height:20%;margin-top:28%}
+	#guide_txt{height:28%;}
+	#scorebar{margin-top:10%;}
+	.fail_box{height:52%;}
+	#boss_talk{margin-top:13%;}
+	.killnum02{margin:24.4% 0 0 55%;}
 }
