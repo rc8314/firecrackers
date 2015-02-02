@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/2000/xlink" width="60" height="100" version="1.1">
+    <style type="text/css">
+        .path {
+            stroke-dasharray: 92;
+            stroke-dashoffset: 0;
+            -webkit-animation: dash 2s linear forwards;
+            animation: dash 2s linear forwards;
+        }
+
+        @-webkit-keyframes dash {
+          to {
+            stroke-dashoffset: 46;
+          }
+        }
+
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 46;
+          }
+        }
+    </style>
+    <g>
+        <title>游戏引导，引线动画</title>
+        <image xlink:href="../assets/img/fire.gif" width="30px" height="25.5px" transform="translate(-15,-12)">
+            <animateMotion path="M30,10 Q50,30 30,50" begin="0s" dur="2s" rotate="auto" repeatCount="1" fill="freeze"/>
+        </image>
+
+        <path class="path" d="M30,90 Q10,70 30,50 Q50,30 30,10" stroke="#000" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+</svg>
+
+<!-- var path = document.querySelector('path');
+path.getTotalLength(); -->
