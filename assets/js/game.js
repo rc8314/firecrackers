@@ -1,9 +1,8 @@
 
-
 var 
-    //width = $('#drawing').attr('svg_width'), height = $('#drawing').attr('svg_height'),
+    width = $('#drawing').attr('svg_width'), height = $('#drawing').attr('svg_height'),
     // svg body
-    draw = SVG('drawing').size(455, 340).viewbox(0, 0, gwidth, gheight),
+    draw = SVG('drawing').size(width, height).viewbox(0, 0, 455, 340),
     // group体
     group,
     // 引线燃烧效果图
