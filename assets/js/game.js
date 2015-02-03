@@ -45,8 +45,10 @@ var game = {
         path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
 
         // 绑定按钮事件
-        bz.mousedown(this.start);
-        bz.mouseup(this.stop);
+        //bz.mousedown(this.start);
+        //bz.mouseup(this.stop);
+        $("#ctl_box").mousedown(this.start);
+        $("#ctl_box").mouseup(this.stop);
     },
     // 开始游戏
     start: function () {
@@ -83,17 +85,25 @@ var game = {
 
         count++;
         draw.clear();
-
+        $("#scorebar div").html(count);
         // 开始成功动画
+        alert('1');
+        suss_game();
     },
     // 挑战失败
     fail: function () {
         console.log('fail');
+        $(".kill_num").html(count);
+
+        // 开始失败
+        ck_state(count);
 
         count = 0;
+        $("#scorebar div").html(1);
         draw.clear();
 
-        // 开始失败动画
+        
+
     }
 };
 
