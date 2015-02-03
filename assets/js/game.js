@@ -87,7 +87,6 @@ var game = {
         draw.clear();
         $("#scorebar div").html(count);
         // 开始成功动画
-        alert('1');
         suss_game();
     },
     // 挑战失败

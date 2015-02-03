@@ -136,7 +136,6 @@ function hover_pane(){
 
 //成功后动画
 function suss_game(){
-  alert('2');
   var suss_boss = random(1,3);
   $("#game_boss").addClass("boss_over_"+suss_boss).delay(3000).animate({opacity:0},1200);
   $("#hover_pane").hide();
@@ -144,6 +143,7 @@ function suss_game(){
   rotate("#bzgif");
   $("#bigfire").delay(900).fadeIn().delay(2500).fadeOut();
   setTimeout(boss_animate,4300);
+  game.init();
 
 }
 
