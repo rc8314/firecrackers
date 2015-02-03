@@ -176,9 +176,8 @@ opacity: 0.8;
 #fire_gif{position:absolute;width:84%;margin-top:0;text-align:center;}
 #fire_gif img{width:10%;}
 
-
-
-
+#all_ctl{width:100%;position:absolute;}
+#drawing{margin:0 auto;}
 
 
 /* iphone 4 */
