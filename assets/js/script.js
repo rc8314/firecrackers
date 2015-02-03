@@ -29,6 +29,7 @@ $(function(){
       clearTimeout(gudietime);
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
+      $("#hoverpane").show();
       game.init();
       boss_enter();
       hover_pane();
@@ -106,6 +107,7 @@ function play_again(){
   $("#mask_div,#pop_div").hide();
   $("#scorebar div").html(1);
   boss_animate();
+  $("#hoverpane").show();
   game.init();
 }
 
@@ -178,6 +180,7 @@ function guide_animate(){
 
 //
 function ck_state(cc){
+  $("#hoverpane").hide();
   if (cc==0){
     $("#mask_div,#pop_div,#all_fail").show();
   }else{

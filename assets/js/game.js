@@ -47,8 +47,8 @@ var game = {
         // 绑定按钮事件
         //bz.mousedown(this.start);
         //bz.mouseup(this.stop);
-        $("#ctl_box").mousedown(this.start);
-        $("#ctl_box").mouseup(this.stop);
+        $("#hoverpane").mousedown(this.start);
+        $("#hoverpane").mouseup(this.stop);
     },
     // 开始游戏
     start: function () {
