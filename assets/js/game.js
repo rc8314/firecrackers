@@ -41,7 +41,7 @@ var game = {
         line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
 
         // 设置引线属性，动画用
-        path.stroke({width: 6, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+        path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
 
         // 绑定按钮事件
         bz.mousedown(this.start);
