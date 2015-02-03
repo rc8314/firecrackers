@@ -1,5 +1,3 @@
-
-
 var 
     //width = $('#drawing').attr('svg_width'), height = $('#drawing').attr('svg_height'),
     // svg body
