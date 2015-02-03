@@ -1,7 +1,8 @@
 var 
-    //width = $('#drawing').attr('svg_width'), height = $('#drawing').attr('svg_height'),
+    sWidth = $('#drawing').attr('svg_width'), sHeight = $('#drawing').attr('svg_height'),
+    vWidth = 455, vHeight = 340,
     // svg body
-    draw = SVG('drawing').size(455, 340).viewbox(0, 0, gwidth, gheight),
+    draw = SVG('drawing').size(sWidth, sHeight).viewbox(0, 0, vWidth, vHeight),
     // group体
     group,
     // 引线燃烧效果图
@@ -29,19 +30,19 @@ var game = {
         draw.clear();
 
         createPath(0, 55 / 2, 94, 204 + 14);
-        createArea(0, 55 + 20, draw.width(), 204 - 20);
+        createArea(0, 55 + 20, vWidth, 204 - 20);
 
-        group = draw.group().x(draw.width() * 0.5 - 70);
+        group = draw.group().x(vWidth * 0.5 - 70);
         fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
         bz = group.image('../assets/img/bz.png', 94, 136).y(204);
         path = group.path(pathArray).fill('none');
 
         // 绘制白色安全区域及红线
-        rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('#000');
+        rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('#fff');
         line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
 
         // 设置引线属性，动画用
-        path.stroke({width: 6, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+        path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
 
         // 绑定按钮事件
         bz.mousedown(this.start);
@@ -116,5 +117,5 @@ function createArea (x1, y1, x2, y2) {
 
     var yt = y1 + Math.random() * (y2 - y1);
     
-    areaArray = [x1, yt, x2, yt + 20];
+    areaArray = [x1, yt, x2, yt + 30];
 };
