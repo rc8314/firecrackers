@@ -104,10 +104,12 @@ $(function(){
 
 })
 
-//设置svg画布高宽
 var gwidth = window.screen.width / 100 * 84;
 var gheight = window.screen.height / 100 * 90 / 100 * 34;
-$("#drawing").css('width',gwidth+'px').css('height',gheight+'px');
+//设置svg画布高宽
+$("#drawing").css('width',gwidth+'px').css('height',gheight+'px')
+  .attr('svg_width', gwidth)
+  .attr('svg_height', gheight);
 
 
 //眨眼动画
