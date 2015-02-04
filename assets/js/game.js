@@ -27,6 +27,7 @@ var
 var game = {
     // 初始化游戏
     init: function () {
+        
         drawAll();
 
         // 绑定按钮事件
