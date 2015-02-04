@@ -34,7 +34,9 @@ body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#
 .cp{position:absolute;}
 .autop {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .autom{margin:0 auto;}
-#mask_div{position:fixed;z-index:311;top:0;left:0;display:none;zoom:1;background:rgba(0, 0, 0, 1);filter:Alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7; background:rgba(0, 0, 0, 0.7)!important;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)!important;height:100%;width:100%;}
+#mask_div,#sharemask{position:fixed;z-index:311;top:0;left:0;display:none;zoom:1;background:rgba(0, 0, 0, 1);filter:Alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7; background:rgba(0, 0, 0, 0.7)!important;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)!important;height:100%;width:100%;}
+#sharemask{z-index:512;}
+#sharemt{position:fixed;z-index:513;top:0;left:0;display:none;zoom:1;height:100%;width:100%;background:url(../img/sharemt.png) no-repeat top center;background-size:100% auto;}
 #hoverpane{position:fixed;z-index:299;top:0;left:0;display:none;zoom:1;height:100%;width:100%;background:rgba(255,255,255,0)}
 
 #preloader {

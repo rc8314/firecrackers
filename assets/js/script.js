@@ -5,12 +5,12 @@ $(function(){
 		
 
   //mask resize
-    $("#mask_div").css("height",document.body.clientHeight+'px');
-    $("#mask_div").css("width",document.body.scrollWidth+'px');
+    $("#mask_div,#sharemask").css("height",document.body.clientHeight+'px');
+    $("#mask_div,#sharemask").css("width",document.body.scrollWidth+'px');
 
     $(window).resize(function(){
-      $("#mask_div").css("height",document.body.clientHeight+'px');
-      $("#mask_div").css("width",document.body.scrollWidth+'px');
+      $("#mask_div,#sharemask").css("height",document.body.clientHeight+'px');
+      $("#mask_div,#sharemask").css("width",document.body.scrollWidth+'px');
     });
 
 
@@ -25,20 +25,26 @@ $(function(){
 
     //游戏start开始
     $("#real_play").click(function(){
-      
       clearTimeout(gudietime);
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
       $("#hoverpane").show();
-      game.init();
+      if (game_now=='off')
+      {
+        game.init();
+      }else{
+        count = 0;
+        $("#scorebar div").html(1);
+        drawAll();
+      }
       boss_enter();
-      hover_pane();
 
     })
  
     //pop close 点击
     $("#pop_close").click(function(){
-      $("#mask_div,#pop_div").hide();
+      $("#mask_div,#pop_div,#hoverpane,#game_pane,#all_fail,#def_fail").hide();
+      $("#start_div,#home_box,#game_guide").fadeIn();
     })
 
     //再玩一次
@@ -46,8 +52,13 @@ $(function(){
       play_again();
     })
   
-   
-  
+    //点击分享
+    $(".share_bt").click(function(){
+      $("#sharemt,#sharemask").show();
+    })
+    $("#sharemt").click(function(){
+      $("#sharemt,#sharemask").hide();
+    })
   
   //眨眼动画开启
   var zyanId = setInterval(zyan,740);
@@ -121,32 +132,23 @@ function boss_enter(){
   var boss_id = random(1,3);
   var boss_talk = random(1,3);
   $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"41.5%",opacity:1},1400);
-  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1500).animate({opacity:0},1200)
+  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1200).animate({opacity:0},800)
 };
-
-
-
-//随机成功区域
-function hover_pane(){
-  var hover_red = random(2,3);
-  var hover_border = random(6,14);
-  var hover_mgtop = random(4,12)+8;
-  $("#hover_pane").show().css('height',hover_red+'px').css('border-top',hover_border+'px solid #fff').css('border-bottom',hover_border+'px solid #fff').css('margin-top',hover_mgtop + '%');
-}
 
 
 //成功后动画
 function suss_game(){
-  ////hide触屏区域
+  
+  //hide触屏区域
   $("#hoverpane").hide();
 
   var suss_boss = random(1,3);
-  $("#game_boss").addClass("boss_over_"+suss_boss).delay(3000).animate({opacity:0},1200);
+  $("#game_boss").addClass("boss_over_"+suss_boss).delay(2500).animate({opacity:0},1000);
   $("#hover_pane").hide();
   $("#ctl_box,#bz_box").hide();
   rotate("#bzgif");
-  $("#bigfire").delay(900).fadeIn().delay(2500).fadeOut();
-  setTimeout(boss_animate,4300);
+  $("#bigfire").delay(700).fadeIn().delay(2000).fadeOut();
+  setTimeout(boss_animate,3600);
 
 }
 
@@ -167,7 +169,6 @@ function boss_animate(){
     $("#scorebar div").html( parseInt($("#scorebar div").html())+1);
   }
   drawAll();
-  //hover_pane();
 }
 
 
@@ -186,7 +187,7 @@ function guide_animate(){
 }
 
 
-//
+//判断失败状态
 function ck_state(cc){
   $("#hoverpane").hide();
   if (cc==0){

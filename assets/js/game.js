@@ -1,3 +1,4 @@
+var game_now = 'off';
 var 
     sWidth = $('#drawing').attr('svg_width'), sHeight = $('#drawing').attr('svg_height'),
     vWidth = 455, vHeight = 340,
@@ -28,6 +29,7 @@ var game = {
     // 初始化游戏
     init: function () {
         
+        game_now = 'on';
         drawAll();
 
         // 绑定按钮事件
@@ -119,7 +121,7 @@ function drawAll() {
 
     group = draw.group().x(vWidth * 0.5 - 70);
     fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
-    bz = group.image('../assets/img/bz.png', 94, 136).y(204);
+    bz = group.image('../assets/img/bz.png', 110, 150).y(204);
     path = group.path(pathArray).fill('none');
 
     // 绘制白色安全区域及红线
