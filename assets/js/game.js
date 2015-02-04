@@ -42,8 +42,6 @@ var game = {
         // 计算燃烧时间
         var speed = 4000 - count * 170;
 
-        console.log('speed: ' + speed);
-
         path.animate(speed > 1300 ? speed : 1000)
             .stroke({
                 dashoffset: path.length()
@@ -70,19 +68,22 @@ var game = {
     // 挑战成功
     succ: function () {
         console.log('succ: ' + (count + 1));
+
         count++;
         draw.clear();
+
         // 开始成功动画
         suss_game();
     },
     // 挑战失败
     fail: function () {
         console.log('fail');
+
         $(".kill_num").html(count);
+
         // 开始失败
         ck_state(count);
         draw.clear();
-
     }
 };
 
@@ -104,9 +105,9 @@ function createPath (x1, y1, x2, y2) {
 
 function createArea (x1, y1, x2, y2) {
 
-    var yt = y1 + Math.random() * (y2 - y1);
+    var yt = random(y1, y2);
     
-    areaArray = [x1, yt, x2, yt + 30];
+    areaArray = [x1, yt, x2, yt + random(20, 40)];
 };
 
 //绘制引线和白色安全区域及红线
