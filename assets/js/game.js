@@ -3,7 +3,7 @@ var
     vWidth = 455, vHeight = 340,
     // svg body
     draw = SVG('drawing').size(sWidth, sHeight).viewbox(0, 0, vWidth, vHeight),
-    // group体
+    // 炮竹group组
     group,
     // 引线燃烧效果图
     fire,
@@ -110,24 +110,25 @@ function createArea (x1, y1, x2, y2) {
 };
 
 //绘制引线和白色安全区域及红线
-function drawAll(){
-  draw.clear();
+function drawAll() {
 
-  createPath(0, 55 / 2, 94, 204 + 14);
-  createArea(0, 55 + 20, vWidth, 204 - 20);
+    draw.clear();
 
-  group = draw.group().x(vWidth * 0.5 - 70);
-  fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
-  bz = group.image('../assets/img/bz.png', 94, 136).y(204);
-  path = group.path(pathArray).fill('none');
+    createPath(0, 55 / 2, 94, 204 + 14);
+    createArea(-300, 55 + 20, vWidth + 300, 204 - 20);
 
-  // 绘制白色安全区域及红线
-  rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
-  line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
+    group = draw.group().x(vWidth * 0.5 - 70);
+    fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
+    bz = group.image('../assets/img/bz.png', 94, 136).y(204);
+    path = group.path(pathArray).fill('none');
 
-  // 设置引线属性，动画用
-  path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+    // 绘制白色安全区域及红线
+    rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
+    line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
 
-  //显示触屏区域
-  $("#hoverpane").show();
+    // 设置引线属性，动画用
+    path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+
+    //显示触屏区域
+    $("#hoverpane").show();
 }
