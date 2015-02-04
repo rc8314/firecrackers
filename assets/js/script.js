@@ -1,3 +1,12 @@
+var wxData = {
+        "appId": wx633fd5d838f8e92d, 
+        "imgUrl" : '/assets/img/sharemin.png',
+        "link" : location.href,
+        "desc" : "炮竹驱年兽，新年爆好运",
+        "title" : '炮竹驱年兽，新年爆好运'
+};
+
+
 $(function(){
 
   //页面加载完毕淡入
@@ -94,6 +103,46 @@ $(function(){
 		shensuo:240,
 		motionSpeed:0.07       
 	})
+
+
+  wx.error(function(res){
+        // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+        callWxApi(res);
+
+    });
+
+    (function callWxApi(err){
+        var data = {url: location.href};
+        if(err) data.err = err;
+        $.ajax({
+            url: '/sign',
+            type: "POST",
+            data: data,
+            success: function(a) {
+                var _a = $.parseJSON( a );
+                wx.config({
+                    debug: false,
+                    appId: wx633fd5d838f8e92d,
+                    timestamp: _a.timestamp,
+                    nonceStr: _a.nonceStr,
+                    signature: _a.signature,
+                    jsApiList: ['checkJsApi','onMenuShareTimeline']
+                });
+
+                wx.ready(function() {
+                    wx.onMenuShareTimeline({
+                        title: '炮竹驱年兽，新年爆好运',
+                        link: location.href,
+                        imgUrl: '/assets/img/sharemin.png',
+                        trigger: function() {},
+                        success: function() {},
+                        cancel: function() {},
+                        fail: function() {}
+                    });
+                })
+            }
+        });
+    })();
 
 
 })
