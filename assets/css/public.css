@@ -181,6 +181,30 @@ opacity: 0.8;
 #drawing{margin:0 auto;}
 
 
+
+
+
+@media only screen and (min-device-width:480px) and (max-device-width:540px) {
+
+}
+
+@media only screen and (min-device-width:720px) and (max-device-width:800px) {
+
+}
+
+@media only screen and (device-width:720px) and (device-height:1280px) {
+
+}
+
+@media only screen and (device-width:1080px) and (device-height:1776px) {
+
+}
+
+@media only screen and (device-width:1080px) and (device-height:1920px) {
+
+}
+
+
 /* iphone 4 */
 @media only screen and (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
 	#start_div{bottom:1%;}
