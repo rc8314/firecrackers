@@ -154,7 +154,7 @@ opacity: 0.8;}
 
 #bz_box{position:absolute;width:100%;height:100%;}
 #bz{background: url(../img/bz.png) no-repeat top center;background-size: 100% auto;width: 20%;height:20%;margin:106% auto 0 auto;}
-#bzgif_box{position:absolute;width:100%;height:100%;}
+#bzgif_box{position:absolute;width:100%;height:100%;z-index:99;}
 #bzgif_pane{position: absolute;width:100%;height: 100%;text-align: center;}
 #bzgif{display:none;background: url(../img/bzgif.png) no-repeat top center;background-size: 100% auto;width: 20%;height:20%;margin:106% auto 0 auto;}
 #bigfire{position:absolute;8width:100%;height:20%;margin-top:50%;text-align:center;display: none;}
@@ -177,7 +177,7 @@ opacity: 0.8;
 #fire_gif{position:absolute;width:84%;margin-top:0;text-align:center;}
 #fire_gif img{width:10%;}
 
-#all_ctl{width:100%;position:absolute;}
+#all_ctl{width:100%;position:absolute;height:100%;}
 #drawing{margin:0 auto;}
 
 
