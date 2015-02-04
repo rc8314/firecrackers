@@ -45,10 +45,11 @@ var game = {
         path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
 
         // 绑定按钮事件
-        //bz.mousedown(this.start);
-        //bz.mouseup(this.stop);
-        $("#hoverpane").mousedown(this.start);
-        $("#hoverpane").mouseup(this.stop);
+        // 绑定按钮事件
+        var mc = new Hammer.Manager($("#hoverpane")[0]);
+        mc.add( new Hammer.Press());
+        mc.on("press", game.start);
+        mc.on("pressup", game.stop);
     },
     // 开始游戏
     start: function () {
