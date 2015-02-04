@@ -40,9 +40,9 @@ var game = {
     // 开始游戏
     start: function () {
         // 计算燃烧时间
-        var speed = 4000 - count * 170;
+        var speed = 3500 - count * 200;
 
-        path.animate(speed > 1300 ? speed : 1000)
+        path.animate(speed > 1500 ? speed : 1300)
             .stroke({
                 dashoffset: path.length()
             })
@@ -92,9 +92,9 @@ function createPath (x1, y1, x2, y2) {
     var xl = x1 + Math.random() * (x2 - x1) / 2;
     var xr = x2 - Math.random() * (x2 - x1) / 2;
 
-    var ym = y1 + Math.random() * (y2 - y1);
-    var yt = y1 + Math.random() * (ym - y1);
-    var yb = ym + Math.random() * (y2 - ym);
+    var ym = random(y1, y2);
+    var yt = random(y1, ym);
+    var yb = random(ym, y2);
 
     pathArray = [
         ['M', (x1 + x2) / 2, y2],
@@ -125,7 +125,7 @@ function drawAll() {
 
     // 绘制白色安全区域及红线
     rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
-    line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
+    line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: random(1,3), color: '#b30e0e'});
 
     // 设置引线属性，动画用
     path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
