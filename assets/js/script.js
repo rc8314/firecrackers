@@ -1,5 +1,5 @@
 var wxData = {
-        "appId": wx633fd5d838f8e92d, 
+        "appId": 'wx633fd5d838f8e92d', 
         "imgUrl" : '/assets/img/sharemin.png',
         "link" : location.href,
         "desc" : "炮竹驱年兽，新年爆好运",
@@ -122,7 +122,7 @@ $(function(){
                 var _a = $.parseJSON( a );
                 wx.config({
                     debug: false,
-                    appId: wx633fd5d838f8e92d,
+                    appId: 'wx633fd5d838f8e92d',
                     timestamp: _a.timestamp,
                     nonceStr: _a.nonceStr,
                     signature: _a.signature,
