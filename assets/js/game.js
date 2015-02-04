@@ -44,8 +44,6 @@ var game = {
         // 计算燃烧时间
         var speed = 3500 - count * 200;
 
-        console.log('speed: ' + speed);
-
         path.animate(speed > 1500 ? speed : 1300)
             .stroke({
                 dashoffset: path.length()
@@ -72,19 +70,22 @@ var game = {
     // 挑战成功
     succ: function () {
         console.log('succ: ' + (count + 1));
+
         count++;
         draw.clear();
+
         // 开始成功动画
         suss_game();
     },
     // 挑战失败
     fail: function () {
         console.log('fail');
+
         $(".kill_num").html(count);
+
         // 开始失败
         ck_state(count);
         draw.clear();
-
     }
 };
 
@@ -93,9 +94,9 @@ function createPath (x1, y1, x2, y2) {
     var xl = x1 + Math.random() * (x2 - x1) / 2;
     var xr = x2 - Math.random() * (x2 - x1) / 2;
 
-    var ym = y1 + Math.random() * (y2 - y1);
-    var yt = y1 + Math.random() * (ym - y1);
-    var yb = ym + Math.random() * (y2 - ym);
+    var ym = random(y1, y2);
+    var yt = random(y1, ym);
+    var yb = random(ym, y2);
 
     pathArray = [
         ['M', (x1 + x2) / 2, y2],
@@ -106,9 +107,9 @@ function createPath (x1, y1, x2, y2) {
 
 function createArea (x1, y1, x2, y2) {
 
-    var yt = y1 + Math.random() * (y2 - y1);
+    var yt = random(y1, y2);
     
-    areaArray = [x1, yt, x2, yt + 30];
+    areaArray = [x1, yt, x2, yt + random(20, 40)];
 };
 
 //绘制引线和白色安全区域及红线
