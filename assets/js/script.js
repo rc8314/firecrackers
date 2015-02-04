@@ -87,7 +87,7 @@ $(function(){
 
 })
 
-var gwidth = $(window).width() / 100 * 84;
+var gwidth = $(window).width() / 100 * 84-4;
 var gheight = $(window).height() / 100 * 90 / 100 * 34;
 //设置svg画布高宽
 $("#drawing").css('width',gwidth+'px').css('height',gheight+'px')
