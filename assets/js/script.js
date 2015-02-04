@@ -104,11 +104,10 @@ function zyan(){
 
 //再玩一次
 function play_again(){
-  $("#mask_div,#pop_div").hide();
+  count = 0;
+  $("#mask_div,#pop_div,#all_fail,#def_fail").hide();
   $("#scorebar div").html(1);
   boss_animate();
-  $("#hoverpane").show();
-  game.init();
 }
 
 
@@ -138,6 +137,9 @@ function hover_pane(){
 
 //成功后动画
 function suss_game(){
+  ////hide触屏区域
+  $("#hoverpane").hide();
+
   var suss_boss = random(1,3);
   $("#game_boss").addClass("boss_over_"+suss_boss).delay(3000).animate({opacity:0},1200);
   $("#hover_pane").hide();
@@ -145,7 +147,6 @@ function suss_game(){
   rotate("#bzgif");
   $("#bigfire").delay(900).fadeIn().delay(2500).fadeOut();
   setTimeout(boss_animate,4300);
-  game.init();
 
 }
 
@@ -159,6 +160,13 @@ function boss_animate(){
   $("#game_sky").before("<div id='game_boss'></div>");
   $("#game_sky").after("<div id='boss_talk'></div>");
   boss_enter();
+  if (count == 0)
+  {
+    $("#scorebar div").html(1);
+  }else{
+    $("#scorebar div").html( parseInt($("#scorebar div").html())+1);
+  }
+  drawAll();
   //hover_pane();
 }
 

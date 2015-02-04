@@ -27,22 +27,7 @@ var
 var game = {
     // 初始化游戏
     init: function () {
-        draw.clear();
-
-        createPath(0, 55 / 2, 94, 204 + 14);
-        createArea(0, 55 + 20, vWidth, 204 - 20);
-
-        group = draw.group().x(vWidth * 0.5 - 70);
-        fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
-        bz = group.image('../assets/img/bz.png', 94, 136).y(204);
-        path = group.path(pathArray).fill('none');
-
-        // 绘制白色安全区域及红线
-        rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('#fff');
-        line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
-
-        // 设置引线属性，动画用
-        path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+        drawAll();
 
         // 绑定按钮事件
         //bz.mousedown(this.start);
@@ -82,10 +67,8 @@ var game = {
     // 挑战成功
     succ: function () {
         console.log('succ: ' + (count + 1));
-
         count++;
         draw.clear();
-        $("#scorebar div").html(count);
         // 开始成功动画
         suss_game();
     },
@@ -93,15 +76,9 @@ var game = {
     fail: function () {
         console.log('fail');
         $(".kill_num").html(count);
-
         // 开始失败
         ck_state(count);
-
-        count = 0;
-        $("#scorebar div").html(1);
         draw.clear();
-
-        
 
     }
 };
@@ -128,3 +105,26 @@ function createArea (x1, y1, x2, y2) {
     
     areaArray = [x1, yt, x2, yt + 30];
 };
+
+//绘制引线和白色安全区域及红线
+function drawAll(){
+  draw.clear();
+
+  createPath(0, 55 / 2, 94, 204 + 14);
+  createArea(0, 55 + 20, vWidth, 204 - 20);
+
+  group = draw.group().x(vWidth * 0.5 - 70);
+  fire = group.image('../assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
+  bz = group.image('../assets/img/bz.png', 94, 136).y(204);
+  path = group.path(pathArray).fill('none');
+
+  // 绘制白色安全区域及红线
+  rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
+  line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: 2, color: '#b30e0e'});
+
+  // 设置引线属性，动画用
+  path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
+
+  //显示触屏区域
+  $("#hoverpane").show();
+}
