@@ -40,10 +40,11 @@ var game = {
     // 开始游戏
     start: function () {
         // 计算燃烧时间
-        var speed = 3000 - count * 200;
+        var speed = 4000 - count * 170;
+
         console.log('speed: ' + speed);
 
-        path.animate(speed > 1000 ? speed : 1000)
+        path.animate(speed > 1300 ? speed : 1000)
             .stroke({
                 dashoffset: path.length()
             })
