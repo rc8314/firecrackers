@@ -115,7 +115,7 @@ $(function(){
 
     (function callWxApi(err){
         $.ajax({
-            url: '/sign/index.php',
+            url: './sign/index.php',
             type: "POST",
             dataType: "json",
             success: function(_a) {
