@@ -38,9 +38,10 @@ $(function(){
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
       $("#hoverpane").show();
-      if (game.status=='off') {
+      if (game_now=='off')
+      {
         game.init();
-      } else {
+      }else{
         count = 0;
         $("#scorebar div").html(1);
         drawAll();
@@ -148,10 +149,14 @@ $(function(){
 
 var gwidth = $(window).width() / 100 * 84-4;
 var gheight = $(window).height() / 100 * 90 / 100 * 34;
+
+var svgheight = $(window).height() / 100 * 48 / 100 * 70;
+var svgwidth = $(window).width() / 100 * 83;
+
+//设置svg引导画布高宽
+$("#guide_mm svg").attr('width', svgwidth).attr('height', svgheight);
 //设置svg画布高宽
-$("#drawing").css('width',gwidth+'px').css('height',gheight+'px')
-  .attr('svg_width', gwidth)
-  .attr('svg_height', gheight);
+$("#drawing").css('width',gwidth+'px').css('height',gheight+'px').attr('svg_width', gwidth).attr('svg_height', gheight);
 
 
 //眨眼动画
