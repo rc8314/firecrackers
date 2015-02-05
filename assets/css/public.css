@@ -39,52 +39,6 @@ body{font-family:'microsoft yahei','SimHei','sans-serif';font-size:62.5%;color:#
 #sharemt{position:fixed;z-index:513;top:0;left:0;display:none;zoom:1;height:100%;width:100%;background:url(../img/sharemt.png) no-repeat top center;background-size:100% auto;}
 #hoverpane{position:fixed;z-index:299;top:0;left:0;display:none;zoom:1;height:100%;width:100%;background:rgba(255,255,255,0)}
 
-#preloader {
-/* Images you want to preload*/
-width: 0px;
-height: 0px;
-display: inline;
-background-image: url(../img/bg.png);
-background-image: url(../img/bg_titbar.png);
-background-image: url(../img/left_dl.png);
-background-image: url(../img/right_dl.png);
-background-image: url(../img/homebg.png);
-background-image: url(../img/zyan.png);
-background-image: url(../img/ssdl.png);
-background-image: url(../img/start.png);
-background-image: url(../img/popbg.png);
-background-image: url(../img/pob_close.png);
-background-image: url(../img/all_fail.png);
-background-image: url(../img/def_fail.png);
-background-image: url(../img/bz.png);
-background-image: url(../img/fline.png);
-background-image: url(../img/hand_off.png);
-background-image: url(../img/hand_on.png);
-background-image: url(../img/gudtxt.png);
-background-image: url(../img/real_start.png);
-background-image: url(../img/play_again.png);
-background-image: url(../img/share_bt.png);
-background-image: url(../img/gift_bt.png);
-background-image: url(../img/gamebg.png);
-background-image: url(../img/scorebar.png);
-background-image: url(../img/boss_1.png);
-background-image: url(../img/boss_2.png);
-background-image: url(../img/boss_3.png);
-background-image: url(../img/boss_over_1.png);
-background-image: url(../img/boss_over_2.png);
-background-image: url(../img/boss_over_3.png);
-background-image: url(../img/boss_talk_1.png);
-background-image: url(../img/boss_talk_2.png);
-background-image: url(../img/boss_talk_3.png);
-background-image: url(../img/sky.png);
-background-image: url(../img/bz.png);
-background-image: url(../img/bzgif.png);
-background-image: url(../img/fline.png);
-background-image: url(../img/fire.gif);
-background-image: url(../img/big_fire.gif);
-background-image: url();
-}
-
 body{background:url(../img/bg.png) no-repeat;background-size:100% 100%;}
 #loadmask{background:url(../img/bg.png) no-repeat;background-size:100% 100%;position:absolute;width:100%;height:100%;z-index:300;}
 #dltit_bar{position:absolute;z-index:100;background:url(../img/bg_titbar.png) no-repeat;background-size:100% auto;width:100%;height:8em;}
@@ -195,10 +149,9 @@ opacity: 0.8;
 /*未测*/
 @media only screen and (device-width:720px) and (device-height:1280px) {
 	#pop_div{height:80%;}
-	#game_boss{height:3%;margin-top:30%;}
+	#game_boss{height:3%;margin-top:20%;}
 	#boss_talk{margin-top:10%;}
-	#guide_bz{margin-top:30%;}
-	.fail_box{height:40%;}
+	.fail_box{height:30%;}
 	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 
 }
