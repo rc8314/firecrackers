@@ -114,21 +114,18 @@ $(function(){
     });
 
     (function callWxApi(err){
-        var data = {url: location.href};
-        if(err) data.err = err;
         $.ajax({
-            url: '/sign',
+            url: '/sign/index.php',
             type: "POST",
-            data: data,
-            success: function(a) {
-                var _a = $.parseJSON( a );
+            dataType: "json"
+            success: function(_a) {
                 wx.config({
                     debug: false,
                     appId: 'wx633fd5d838f8e92d',
                     timestamp: _a.timestamp,
                     nonceStr: _a.nonceStr,
                     signature: _a.signature,
-                    jsApiList: ['checkJsApi','onMenuShareTimeline']
+                    jsApiList: ['checkJsApi', 'onMenuShareTimeline']
                 });
 
                 wx.ready(function() {
