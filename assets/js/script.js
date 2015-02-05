@@ -1,12 +1,12 @@
 var loop_audio = new Audio;
-loop_audio.src = "/assets/loop.mp3";
+loop_audio.src = "./assets/loop.mp3";
 loop_audio.preload = "auto";
 loop_audio.loop = "loop";
 
 var share_num = 0;
 var wxData = {
         "appId": 'wx633fd5d838f8e92d', 
-        "imgUrl" : '/assets/img/sharemin.png',
+        "imgUrl" : './assets/img/sharemin.png',
         "link" : location.href,
         "desc" : "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
         "title" : '炮竹驱年兽，新年爆好运'
@@ -17,7 +17,8 @@ $(function(){
 
   //页面加载完毕淡入
   $("#loadmask").fadeOut(2000);
-  loop_audio.play();
+  setTimeout(loop_play,2000);
+
 		
 
   //mask resize
@@ -264,4 +265,8 @@ function ck_state(cc){
     share_num = cc;
     $("#mask_div,#pop_div,#def_fail").show();
   }
+}
+
+function loop_play(){
+  loop_audio.play()
 }
