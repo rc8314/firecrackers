@@ -1,8 +1,9 @@
+var share_num = 0;
 var wxData = {
         "appId": 'wx633fd5d838f8e92d', 
         "imgUrl" : '/assets/img/sharemin.png',
         "link" : location.href,
-        "desc" : "炮竹驱年兽，新年爆好运",
+        "desc" : "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
         "title" : '炮竹驱年兽，新年爆好运'
 };
 
@@ -11,6 +12,7 @@ $(function(){
 
   //页面加载完毕淡入
   $("#loadmask").fadeOut(2000);
+  $("#loop_mp3").play();
 		
 
   //mask resize
@@ -131,7 +133,7 @@ $(function(){
 
                 wx.ready(function() {
                     wx.onMenuShareTimeline({
-                        title: '炮竹驱年兽，新年爆好运',
+                        title: "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
                         link: location.href,
                         imgUrl: '/assets/img/sharemin.png',
                         trigger: function() {},
@@ -254,8 +256,10 @@ function guide_animate(){
 function ck_state(cc){
   $("#hoverpane").hide();
   if (cc==0){
+    share_num = 0;
     $("#mask_div,#pop_div,#all_fail").show();
   }else{
+    share_num = cc;
     $("#mask_div,#pop_div,#def_fail").show();
   }
 }
