@@ -92,10 +92,10 @@ var game = {
 
 function createPath (x1, y1, x2, y2) {
 
-    var xl = x1 + Math.random() * (x2 - x1) / 2;
-    var xr = x2 - Math.random() * (x2 - x1) / 2;
+    var xl = x1 + random(0, 30) / 100 * (x2 - x1);
+    var xr = x2 - random(0, 30) / 100 * (x2 - x1);
 
-    var ym = random(y1 + (y2 - y1) * 0.25, y2 - (y2 - y1) * 0.25);
+    var ym = y1 + random(40, 60) / 100 * (y2 - y1);
     var yt = y1 + (ym - y1) / 2;
     var yb = ym + (y2 - ym) / 2;
 
@@ -110,7 +110,7 @@ function createArea (x1, y1, x2, y2) {
 
     var yt = random(y1, y2);
     
-    areaArray = [x1, yt, x2, yt + random(20, 40)];
+    areaArray = [x1, yt, x2, yt + random(40, 50)];
 };
 
 //绘制引线和白色安全区域及红线
