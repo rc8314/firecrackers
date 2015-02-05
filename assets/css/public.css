@@ -138,8 +138,8 @@ opacity: 0.8;}
 
 #game_pane{position:absolute;z-index:198;margin-top:6em;width:100%;height:90%;display:none;}
 #game_bg{position:absolute;background: url(../img/gamebg.png) no-repeat top center;background-size: 100% auto;width: 100%;height:100%;}
-#scorebar{position:absolute;background: url(../img/scorebar.png) no-repeat top center;background-size: 100% auto;width: 100%;height:10%;margin-top:4%;text-align:center;}
-#scorebar div{font-size:2.6em;color:#fff;width:15%;margin:5% auto 0 auto;}
+#scorebar{position:absolute;background: url(../img/scorebar.png) no-repeat top center;background-size: 100% auto;width: 100%;height:10%;margin-top:4%;text-align:center;-moz-user-select:none;hutia:expression(this.onselectstart=function(){return(false)});}
+#scorebar div{font-size:2.6em;color:#fff;width:15%;margin:5% auto 0 auto;-moz-user-select:none;hutia:expression(this.onselectstart=function(){return(false)});}
 
 #game_boss{position:absolute;width: 100%;height:4%;margin-top:42%;opacity:0;}
 .boss_1{background: url(../img/boss_1.png) no-repeat top center;background-size:auto 100%;}
@@ -185,13 +185,14 @@ opacity: 0.8;
 
 
 
-
+/*已测*/
 @media only screen and (min-device-width:720px) and (max-device-width:800px) {
-	#start_div{border:1px solid red;}
-
-
+	#pop_div{height:75%;}
+	#boss_talk{margin-top:13%;}
+	.fail_box{height:44%;}
 }
 
+/*未测*/
 @media only screen and (device-width:720px) and (device-height:1280px) {
 	#pop_div{height:75%;}
 	#game_boss{height:3%;margin-top:30%;}
@@ -201,11 +202,16 @@ opacity: 0.8;
 	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 
 }
-
+/*未测*/
 @media only screen and (device-width:1080px) and (device-height:1776px) {
-	#start_div{border:1px solid yellow;}
-
-
+	#pop_div{height:85%;}
+	#scorebar{margin-top:6%;}
+	#game_boss{height:3%;}
+	#boss_talk{margin-top:12%;}
+	#guide_bz{margin-top:30%;}
+	#guide_txt{height:26%;}
+	.fail_box{height:51%;}
+	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 }
 
 
@@ -267,7 +273,7 @@ opacity: 0.8;
 /* note3 */
 @media only screen and (device-width:1080px) and (device-height:1920px) {
 	#pop_div{height:85%;}
-	#scorebar{margin-top:6%;-moz-user-select:none;hutia:expression(this.onselectstart=function(){return(false)});}
+	#scorebar{margin-top:6%;}
 	#game_boss{height:3%;}
 	#boss_talk{margin-top:12%;}
 	#guide_bz{margin-top:30%;}
