@@ -12,7 +12,7 @@ $(function(){
 
   //页面加载完毕淡入
   $("#loadmask").fadeOut(2000);
-  $("#loop_mp3").play();
+  $("#loop_mp3")[0].play();
 		
 
   //mask resize
