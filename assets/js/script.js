@@ -118,8 +118,7 @@ $(function(){
             url: './sign/index.php',
             type: "POST",
             dataType: "json",
-            success: function(a) {
-                var _a = $.parseJSON( a );
+            success: function(_a) {
                 wx.config({
                     debug: false,
                     appId: _a.appId,
