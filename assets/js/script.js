@@ -38,7 +38,7 @@ $(function(){
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
       $("#hoverpane").show();
-      if (game_now=='off')
+      if (game.status=='off')
       {
         game.init();
       }else{
