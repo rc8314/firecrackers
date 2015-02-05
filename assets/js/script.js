@@ -201,7 +201,6 @@ function suss_game(){
   
   //hide触屏区域
   $("#hoverpane").hide();
-  var suss_boss = random(1,3);
   $("#hover_pane").hide();
   $("#ctl_box,#bz_box").hide();
   rotate("#bzgif");
@@ -214,6 +213,7 @@ function suss_game(){
 
 //boss哭
 function boss_cry(){
+  var suss_boss = random(1,3);
   $("#game_boss").addClass("boss_over_"+suss_boss).delay(1300).animate({opacity:0},700);
 }
 
