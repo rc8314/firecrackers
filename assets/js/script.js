@@ -117,7 +117,7 @@ $(function(){
         $.ajax({
             url: '/sign/index.php',
             type: "POST",
-            dataType: "json"
+            dataType: "json",
             success: function(_a) {
                 wx.config({
                     debug: false,
