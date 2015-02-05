@@ -194,11 +194,11 @@ opacity: 0.8;
 
 /*未测*/
 @media only screen and (device-width:720px) and (device-height:1280px) {
-	#pop_div{height:75%;}
+	#pop_div{height:80%;}
 	#game_boss{height:3%;margin-top:30%;}
 	#boss_talk{margin-top:10%;}
 	#guide_bz{margin-top:30%;}
-	.fail_box{height:48%;}
+	.fail_box{height:40%;}
 	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 
 }
