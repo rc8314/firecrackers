@@ -118,10 +118,11 @@ $(function(){
             url: './sign/index.php',
             type: "POST",
             dataType: "json",
-            success: function(_a) {
+            success: function(a) {
+                var _a = $.parseJSON( a );
                 wx.config({
                     debug: false,
-                    appId: 'wx633fd5d838f8e92d',
+                    appId: _a.appId,
                     timestamp: _a.timestamp,
                     nonceStr: _a.nonceStr,
                     signature: _a.signature,
