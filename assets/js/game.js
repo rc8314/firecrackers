@@ -42,10 +42,12 @@ var game = {
     },
     // 开始游戏
     start: function () {
-        // 计算燃烧时间
-        var speed = 3500 - count * 200;
+        // 显示燃烧动画
+        fire.opacity(1);
 
-        path.animate(speed > 1500 ? speed : 1300)
+        var speed = getSpeed(count);
+
+        path.animate(speed)
             .stroke({
                 dashoffset: path.length()
             })
@@ -91,6 +93,7 @@ var game = {
 };
 
 function createPath (x1, y1, x2, y2) {
+    /* 计算引线路径 */
 
     var xl = x1 + random(0, 30) / 100 * (x2 - x1);
     var xr = x2 - random(0, 30) / 100 * (x2 - x1);
@@ -104,14 +107,37 @@ function createPath (x1, y1, x2, y2) {
         ['Q', xl, yb, (x1 + x2) / 2, ym],
         ['Q', xr, yt, (x1 + x2) / 2, y1]
     ];
-};
+}
 
-function createArea (x1, y1, x2, y2) {
-
+function createArea (x1, y1, x2, y2, count) {
+    /* 计算白色安全区域 */
     var yt = random(y1, y2);
+    var step = 45 - count;
     
-    areaArray = [x1, yt, x2, yt + random(40, 50)];
-};
+    areaArray = [x1, yt, x2, yt + (step > 25 ? step : 25)];
+}
+
+function getSpeed (count) {
+    /* 计算燃烧时间 */
+
+    var speed = 3000;
+    // 200 -> 150 -> 100 -> 50
+
+    if (count < 3) {
+        speed = speed - 200 * count;
+    }
+    if (count >= 3 && count < 10) {
+        speed = speed - 150 * (count - 3);
+    }
+    if (count >= 10 && count < 15) {
+        speed = speed - 100 * (count - 10);
+    }
+    if (count >= 15) {
+        speed = speed - 50 * (count - 15);
+    }
+
+    return speed > 100 ? speed : 100;
+}
 
 //绘制引线和白色安全区域及红线
 function drawAll() {
@@ -119,10 +145,10 @@ function drawAll() {
     draw.clear();
 
     createPath(0, 55 / 2, 94, 204 + 14);
-    createArea(-300, 55 + 20, vWidth + 300, 204 - 20);
+    createArea(-300, 55 + 20, vWidth + 300, 204 - 20, count);
 
     group = draw.group().x(vWidth * 0.5 - 70);
-    fire = group.image('assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]);
+    fire = group.image('assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]).opacity(0);
     bz = group.image('assets/img/bz.png', 110, 150).y(204);
     path = group.path(pathArray).fill('none');
 
