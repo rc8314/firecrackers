@@ -145,6 +145,13 @@ $(function(){
     })();
 
 
+    //link好礼
+    $(".gift_bt").click(function(){
+      location.href="http://mp.weixin.qq.com/s?__biz=MzA5NDU0MjMwNg==&mid=204733832&idx=1&sn=f3b9e94a1674ebcb3f33c61305150f6f#rd";
+    })
+    
+
+
 })
 
 var gwidth = $(window).width() / 100 * 84-4;
@@ -194,18 +201,21 @@ function suss_game(){
   
   //hide触屏区域
   $("#hoverpane").hide();
-
   var suss_boss = random(1,3);
-  $("#game_boss").addClass("boss_over_"+suss_boss).delay(2500).animate({opacity:0},1000);
   $("#hover_pane").hide();
   $("#ctl_box,#bz_box").hide();
   rotate("#bzgif");
-  $("#bigfire").delay(700).fadeIn().delay(2000).fadeOut();
-  setTimeout(boss_animate,3600);
+  setTimeout(boss_cry,700);
+  $("#bigfire").delay(610).fadeIn().delay(1500).fadeOut('fast');
+  setTimeout(boss_animate,3000);
+  
 
 }
 
-
+//boss哭
+function boss_cry(){
+  $("#game_boss").addClass("boss_over_"+suss_boss).delay(1300).animate({opacity:0},700);
+}
 
 //再生产boss入场动画，适用于失败再玩一次和成功后继续时
 function boss_animate(){
@@ -221,13 +231,13 @@ function boss_animate(){
   }else{
     $("#scorebar div").html( parseInt($("#scorebar div").html())+1);
   }
-  drawAll();
+  setTimeout(drawAll,1400);
 }
 
 
 //旋转鞭炮
 function rotate(rotate_name) {
-	$(rotate_name).show().animate({rotate: '360',marginTop:'50%'}, 900).delay(400).fadeOut('fast');
+	$(rotate_name).show().animate({rotate: '360',marginTop:'50%'}, 600).delay(300).fadeOut('fast');
 }
 
 
