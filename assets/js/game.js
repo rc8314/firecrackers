@@ -112,12 +112,14 @@ var game = {
         $("#hoverpane").hide();
         $(".kill_num").html(count);
 
+        // 开始失败
+        ck_state(count);
         count = 0;
+
         draw.clear();
         mc.destroy();
 
-        // 开始失败
-        ck_state(count);
+        
     }
 };
 
