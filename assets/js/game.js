@@ -24,26 +24,42 @@ var
     // 引线当前燃烧点坐标
     point = null;
 
+var mc;
+
 var game = {
-    // 游戏状态
-    status: 'off',
-    //失败后在preesup
-    fail_pressup: 'off',
     // 初始化游戏
     init: function () {
-        game.status = 'on';
+        console.log('init');
 
-        drawAll();
+        createPath(0, 55 / 2, 94, 204 + 14);
+        createArea(-300, 55, vWidth + 300, 204, count);
+
+        // 显示基础图片
+        group = draw.group().x(vWidth * 0.5 - 70);
+        fire = group.image('assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]).opacity(0);
+        bz = group.image('assets/img/bz.png', 110, 150).y(204);
+        path = group.path(pathArray).fill('none');
+
+        // 绘制白色安全区域及红线
+        rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
+        line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: random(1,3), color: '#b30e0e'});
+
+        // 设置引线属性，动画用
+        path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
 
         // 绑定按钮事件
-        // 绑定按钮事件
-        var mc = new Hammer.Manager($("#hoverpane")[0]);
-        mc.add( new Hammer.Press());
+        mc = new Hammer.Manager($("#hoverpane")[0]);
+        mc.add(new Hammer.Press());
         mc.on("press", game.start);
         mc.on("pressup", game.stop);
+
+        //显示触屏区域
+        $("#hoverpane").show();
     },
     // 开始游戏
     start: function () {
+        console.log('start');
+
         // 显示燃烧动画
         fire.opacity(1);
 
@@ -58,29 +74,33 @@ var game = {
                 fire.center(point.x, point.y);
 
                 if (point.y > areaArray[3]) {
-                	  game.fail_pressup = 'on';
+                    path.stop();
+
                     game.fail();
                 }
             });
     },
     // 结束游戏
     stop: function () {
-        path.pause();
-        if (game.fail_pressup == 'off')
-        {
-          if (point.y >= areaArray[1] && point.y <= areaArray[3]) {
-                   game.succ();
-              } else {
-                   game.fail();
-              }
+        console.log('stop');
+
+        path.stop();
+
+        if (point.y >= areaArray[1] && point.y <= areaArray[3]) {
+            game.succ();
+        } else {
+            game.fail();
         }
     },
     // 挑战成功
     succ: function () {
         console.log('succ: ' + (count + 1));
 
+        $("#hoverpane").hide();
+
         count++;
         draw.clear();
+        mc.destroy();
 
         // 开始成功动画
         suss_game();
@@ -88,13 +108,16 @@ var game = {
     // 挑战失败
     fail: function () {
         console.log('fail');
-        game.fail_pressup = 'off';
-        path.pause();
+
+        $("#hoverpane").hide();
         $(".kill_num").html(count);
+
+        count = 0;
+        draw.clear();
+        mc.destroy();
 
         // 开始失败
         ck_state(count);
-        draw.clear();
     }
 };
 
@@ -143,28 +166,4 @@ function getSpeed (count) {
     }
 
     return speed > 100 ? speed : 100;
-}
-
-//绘制引线和白色安全区域及红线
-function drawAll() {
-
-    draw.clear();
-
-    createPath(0, 55 / 2, 94, 204 + 14);
-    createArea(-300, 55, vWidth + 300, 204, count);
-
-    group = draw.group().x(vWidth * 0.5 - 70);
-    fire = group.image('assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]).opacity(0);
-    bz = group.image('assets/img/bz.png', 110, 150).y(204);
-    path = group.path(pathArray).fill('none');
-
-    // 绘制白色安全区域及红线
-    rect = draw.rect(areaArray[2] - areaArray[0], areaArray[3] - areaArray[1]).x(areaArray[0]).y(areaArray[1]).fill('rgba(255,255,255,.7)');
-    line = draw.line(areaArray[0], areaArray[1] + (areaArray[3] - areaArray[1]) / 2, areaArray[2], areaArray[1] + (areaArray[3] - areaArray[1]) / 2).stroke({width: random(1,3), color: '#b30e0e'});
-
-    // 设置引线属性，动画用
-    path.stroke({width: 4, linecap: 'round', dasharray: path.length(), dashoffset: 0});
-
-    //显示触屏区域
-    $("#hoverpane").show();
 }

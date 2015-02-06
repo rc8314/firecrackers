@@ -43,15 +43,9 @@ $(function(){
       clearTimeout(gudietime);
       $("#mask_div,#pop_div,#start_div,#home_box,#game_guide").fadeOut();
       $("#game_pane").fadeIn();
-      $("#hoverpane").show();
-      if (game.status=='off')
-      {
-        game.init();
-      }else{
-        count = 0;
-        $("#scorebar div").html(1);
-        drawAll();
-      }
+
+      game.init();
+
       boss_enter();
 
     })
@@ -228,14 +222,11 @@ function boss_enter(){
 function suss_game(){
   
   //hide触屏区域
-  $("#hoverpane").hide();
-  $("#hover_pane").hide();
   $("#ctl_box,#bz_box").hide();
   rotate("#bzgif");
   setTimeout(boss_cry,700);
   $("#bigfire").delay(610).fadeIn().delay(1500).fadeOut('fast');
   setTimeout(boss_animate,3000);
-  
 
 }
 
@@ -253,13 +244,8 @@ function boss_animate(){
   $("#game_sky").before("<div id='game_boss'></div>");
   $("#game_sky").after("<div id='boss_talk'></div>");
   boss_enter();
-  if (count == 0)
-  {
-    $("#scorebar div").html(1);
-  }else{
-    $("#scorebar div").html( parseInt($("#scorebar div").html())+1);
-  }
-  setTimeout(drawAll,1400);
+  $("#scorebar div").html(count + 1);
+  setTimeout(game.init,1400);
 }
 
 
@@ -280,7 +266,6 @@ function guide_animate(){
 
 //判断失败状态
 function ck_state(cc){
-  $("#hoverpane").hide();
   if (cc==0){
     share_num = 0;
     $("#game_boss").hide();
