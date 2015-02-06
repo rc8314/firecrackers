@@ -32,7 +32,7 @@ var game = {
         console.log('init');
 
         createPath(0, 55 / 2, 94, 204 + 14);
-        createArea(-300, 55, vWidth + 300, 204, count);
+        createArea(-300, 55, vWidth + 300, 204 - 20, count);
 
         // 显示基础图片
         group = draw.group().x(vWidth * 0.5 - 70);
