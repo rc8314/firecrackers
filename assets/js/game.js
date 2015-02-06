@@ -29,7 +29,7 @@ var mc;
 var game = {
     // 初始化游戏
     init: function () {
-        console.log('init');
+        //console.log('init');
 
         createPath(0, 55 / 2, 94, 204 + 14);
         createArea(-300, 55, vWidth + 300, 204 - 20, count);
@@ -58,7 +58,7 @@ var game = {
     },
     // 开始游戏
     start: function () {
-        console.log('start');
+        //console.log('start');
         fire_music.play();
         // 显示燃烧动画
         fire.opacity(1);
@@ -82,7 +82,7 @@ var game = {
     },
     // 结束游戏
     stop: function () {
-        console.log('stop');
+        //console.log('stop');
         fire_music.pause();
         path.stop();
 
@@ -94,7 +94,7 @@ var game = {
     },
     // 挑战成功
     succ: function () {
-        console.log('succ: ' + (count + 1));
+        //console.log('succ: ' + (count + 1));
         fire_music.pause();
         $("#hoverpane").hide();
 
@@ -107,8 +107,8 @@ var game = {
     },
     // 挑战失败
     fail: function () {
-        console.log('fail');
-
+        //console.log('fail');
+        fire_music.pause();
         $("#hoverpane").hide();
         $(".kill_num").html(count);
 
