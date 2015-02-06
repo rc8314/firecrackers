@@ -6,7 +6,7 @@ loop_audio.loop = "loop";
 var share_num = 0;
 var weiimgurl = 'http://firecrackers.smarteric.cn/demo/assets/img/sharemin.png';
 var wxData = {
-        title: "炮竹驱年兽，新年爆好运",
+        title: "炮竹爆好运！一大波年兽被我赶跑，你也来试试手运吧？",
         desc:  "炮竹爆好运！一大波年兽被我赶跑，你也来试试手运吧？",
         link: location.href,
         imgUrl: weiimgurl

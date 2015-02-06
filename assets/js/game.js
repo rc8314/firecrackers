@@ -13,7 +13,7 @@ var
     path,
     // 白色安全区域及红色提示线
     rect, line;
-
+    
 var
     // 引线路径坐标
     pathArray = null,
@@ -58,7 +58,7 @@ var game = {
                 fire.center(point.x, point.y);
 
                 if (point.y > areaArray[3]) {
-                    game.fail_pressup = 'on';
+                	  game.fail_pressup = 'on';
                     game.fail();
                 }
             });
