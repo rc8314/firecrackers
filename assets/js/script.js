@@ -117,43 +117,46 @@ $(function(){
         // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
         callWxApi(res);
 
-    });
+  });
 
-    (function callWxApi(err){
-        $.ajax({
-            url: './sign/index.php',
-            type: "POST",
-            dataType: "json",
-            success: function(_a) {
-                wx.config({
-                    debug: false,
-                    appId: _a.appId,
-                    timestamp: _a.timestamp,
-                    nonceStr: _a.nonceStr,
-                    signature: _a.signature,
-                    jsApiList: ['checkJsApi', 'onMenuShareTimeline']
-                });
+  (function callWxApi(err){
+      $.ajax({
+          url: './sign/index.php',
+          type: "POST",
+          dataType: "json",
+          data: {
+              url: location.href
+          },
+          success: function(_a) {
+              wx.config({
+                  debug: false,
+                  appId: _a.appId,
+                  timestamp: _a.timestamp,
+                  nonceStr: _a.nonceStr,
+                  signature: _a.signature,
+                  jsApiList: ['checkJsApi', 'onMenuShareTimeline']
+              });
 
-                wx.ready(function() {
-                    wx.onMenuShareTimeline({
-                        title: "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
-                        link: location.href,
-                        imgUrl: '/assets/img/sharemin.png',
-                        trigger: function() {},
-                        success: function() {},
-                        cancel: function() {},
-                        fail: function() {}
-                    });
-                })
-            }
-        });
-    })();
+              wx.ready(function() {
+                  wx.onMenuShareTimeline({
+                      title: "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
+                      link: location.href,
+                      imgUrl: '/assets/img/sharemin.png',
+                      trigger: function() {},
+                      success: function() {},
+                      cancel: function() {},
+                      fail: function() {}
+                  });
+              })
+          }
+      });
+  })();
 
 
-    //link好礼
-    $(".gift_bt").click(function(){
-      location.href="http://mp.weixin.qq.com/s?__biz=MzA5NDU0MjMwNg==&mid=204733832&idx=1&sn=f3b9e94a1674ebcb3f33c61305150f6f#rd";
-    })
+  //link好礼
+  $(".gift_bt").click(function(){
+    location.href="http://mp.weixin.qq.com/s?__biz=MzA5NDU0MjMwNg==&mid=204733832&idx=1&sn=f3b9e94a1674ebcb3f33c61305150f6f#rd";
+  })
     
 
 

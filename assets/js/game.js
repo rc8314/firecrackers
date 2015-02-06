@@ -145,7 +145,7 @@ function drawAll() {
     draw.clear();
 
     createPath(0, 55 / 2, 94, 204 + 14);
-    createArea(-300, 55 + 20, vWidth + 300, 204 - 20, count);
+    createArea(-300, 55, vWidth + 300, 204, count);
 
     group = draw.group().x(vWidth * 0.5 - 70);
     fire = group.image('assets/img/fire.gif', 60, 55).center(pathArray[2][3], pathArray[2][4]).opacity(0);

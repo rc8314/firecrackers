@@ -8,10 +8,9 @@ class JSSDK {
     $this->appSecret = $appSecret;
   }
 
-  public function getSignPackage() {
+  public function getSignPackage($url) {
     $jsapiTicket = $this->getJsApiTicket();
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-    $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $timestamp = time();
     $nonceStr = $this->createNonceStr();
 
