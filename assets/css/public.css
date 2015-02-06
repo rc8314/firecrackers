@@ -136,8 +136,8 @@ opacity: 0.8;
 #all_ctl{width:100%;position:absolute;height:100%;}
 #drawing{margin:0 auto;}
 
-
-
+#gfail_box{opacity:0;position:absolute;width:100%;height:4%;margin-top:42%;background: url(../img/boss_succ.png) no-repeat top center;background-size:auto 100%;z-index:100;}
+#boss_talk_succ{position:absolute;width:38%;height:100%;margin:-14% 0 0 38%;background: url(../img/boss_talk_succ.png) no-repeat top center;background-size:100% auto;opacity: 0;}
 
 /*已测*/
 @media only screen and (min-device-width:720px) and (max-device-width:800px) {
@@ -146,42 +146,33 @@ opacity: 0.8;
 	.fail_box{height:44%;}
 }
 
-/*未测*/
-@media only screen and (device-width:720px) and (device-height:1280px) {
-	#pop_div{height:80%;}
-	#game_boss{height:3%;margin-top:20%;}
-	#boss_talk{margin-top:10%;}
-	.fail_box{height:30%;}
-	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 
-}
-/*未测*/
-@media only screen and (device-width:1080px) and (device-height:1776px) {
-	#pop_div{height:85%;}
-	#scorebar{margin-top:6%;}
-	#game_boss{height:3%;}
-	#boss_talk{margin-top:12%;}
-	#guide_bz{margin-top:30%;}
-	#guide_txt{height:26%;}
-	.fail_box{height:51%;}
-	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
-}
 
 
 /* iphone 4 */
 @media only screen and (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
-	#start_div{bottom:1%;}
+	html,body{overflow-x: hidden;overflow-y: auto;height:500px;}
+	#loadmask{height:500px;}
+
+	#start_div{bottom:-15%;}
 	#left_dl{width:30%;margin-top:18%;}
-	#right_dl{width:30%;margin:18%;}
-	#home_gj{top:58%;}
+	#right_dl{width:30%;margin-top:18%;}
+	#home_box{height:98%}
+	#zyan{position:absolute;background: url(../img/zyan.png) no-repeat top center;background-size: auto 100%;width: 100%;height:98%;display:none;}
+	#home_gj{position:absolute;background: url(../img/ssdl.png) no-repeat;background-size:100% 100%;width:88.8%;height:24%;top:63%;left:5.8%;}
+	#home_bg{position:absolute;background: url(../img/homebg.png) no-repeat top center;background-size: auto 98%;width: 100%;height:100%;}
+	#game_bg{position:absolute;background: url(../img/gamebg.png) no-repeat top center;background-size: auto 100%;width: 100%;height:100%;}
 	#pop_div{height:94%;top:15%;}
 	#guide_txt{height:32%;}
 	#real_play{height:18%}
 	#denglong_box{height:45%;}
 	#guide_bz{height:20%;margin-top:32%}
 	#scorebar{height:14%}
-	#boss_talk{margin-top:22%;}
-	#fire_line{height: 28%;}
+	#boss_talk{margin-top:20%;}
+	#boss_talk_succ{margin-top: -24%}
+	.killnum01{margin:23% 19% 0 0;}
+	.killnum02{margin:22% 0 0 56%;}
+
 
 
 }
@@ -223,12 +214,35 @@ opacity: 0.8;
 	.killnum02{margin:24.4% 0 0 55%;}
 }
 
+
+/*未测*/
+@media only screen and (device-width:720px) and (device-height:1280px) {
+	#pop_div{height:80%;}
+	#game_pane{height:85%;}
+	#boss_talk{margin-top:12%;}
+	.fail_box{height:30%;}
+	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
+
+}
+/*未测*/
+@media only screen and (device-width:1080px) and (device-height:1776px) {
+	#pop_div{height:85%;}
+	#scorebar{margin-top:6%;}
+	#game_pane{height:86%;}
+	#boss_talk{margin-top:14%;}
+	#guide_bz{margin-top:30%;}
+	#guide_txt{height:26%;}
+	.fail_box{height:51%;}
+	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
+}
+
+
 /* note3 */
 @media only screen and (device-width:1080px) and (device-height:1920px) {
 	#pop_div{height:85%;}
 	#scorebar{margin-top:6%;}
-	#game_boss{height:3%;}
-	#boss_talk{margin-top:12%;}
+	#game_pane{height:87%;}
+	#boss_talk{margin-top:14%;}
 	#guide_bz{margin-top:30%;}
 	#guide_txt{height:26%;}
 	.fail_box{height:51%;}
