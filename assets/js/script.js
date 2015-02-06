@@ -4,12 +4,12 @@ loop_audio.preload = "auto";
 loop_audio.loop = "loop";
 
 var share_num = 0;
+var weiimgurl = 'http://firecrackers.smarteric.cn/demo/assets/img/sharemin.png';
 var wxData = {
-        "appId": 'wx633fd5d838f8e92d', 
-        "imgUrl" : './assets/img/sharemin.png',
-        "link" : location.href,
-        "desc" : "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
-        "title" : '炮竹驱年兽，新年爆好运'
+        title: "炮竹驱年兽，新年爆好运",
+        desc:  "炮竹爆好运！一大波年兽被我赶跑，你也来试试手运吧？",
+        link: location.href,
+        imgUrl: weiimgurl
 };
 
 
@@ -115,7 +115,7 @@ $(function(){
         // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
         callWxApi(res);
 
-  });
+    });
 
   (function callWxApi(err){
       $.ajax({
@@ -132,29 +132,46 @@ $(function(){
                   timestamp: _a.timestamp,
                   nonceStr: _a.nonceStr,
                   signature: _a.signature,
-                  jsApiList: ['checkJsApi', 'onMenuShareTimeline']
+                  jsApiList: ['checkJsApi', 'onMenuShareTimeline','onMenuShareAppMessage']
               });
 
               wx.ready(function() {
-                  wx.onMenuShareTimeline({
-                      title: "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
-                      link: location.href,
-                      imgUrl: '/assets/img/sharemin.png',
-                      trigger: function() {},
-                      success: function() {},
-                      cancel: function() {},
-                      fail: function() {}
-                  });
+                  wx.onMenuShareTimeline(wxData);
+                  wx.onMenuShareAppMessage(wxData);
+
+                  document.querySelector('#share_def_bt').onclick = function() {
+                      wx.onMenuShareTimeline({
+                          title: "炮竹爆好运！" + share_num + "只年兽被我赶跑，你也来试试手运吧？",
+                          link: location.href,
+                          imgUrl: weiimgurl,
+                          trigger: function() {},
+                          success: function() {},
+                          cancel: function() {},
+                          fail: function() {}
+                      });
+                  };
+
+                  document.querySelector('#share_all_bt').onclick = function() {
+                      wx.onMenuShareTimeline({
+                          title: "炮竹爆好运！0只年兽被我赶跑，你也来试试手运吧？",
+                          link: location.href,
+                          imgUrl: weiimgurl,
+                          trigger: function() {},
+                          success: function() {},
+                          cancel: function() {},
+                          fail: function() {}
+                      });
+                  };
               })
           }
       });
   })();
 
 
-  //link好礼
-  $(".gift_bt").click(function(){
-    location.href="http://mp.weixin.qq.com/s?__biz=MzA5NDU0MjMwNg==&mid=204733832&idx=1&sn=f3b9e94a1674ebcb3f33c61305150f6f#rd";
-  })
+    //link好礼
+    $(".gift_bt").click(function(){
+      location.href="http://mp.weixin.qq.com/s?__biz=MzA5NDU0MjMwNg==&mid=204733832&idx=1&sn=f3b9e94a1674ebcb3f33c61305150f6f#rd";
+    })
     
 
 
@@ -200,8 +217,8 @@ function play_again(){
 
 //随机boss及文字
 function boss_enter(){
-  var boss_id = random(1,3);
-  var boss_talk = random(1,3);
+  var boss_id = random(1,4);
+  var boss_talk = random(1,4);
   $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"41.5%",opacity:1},1400);
   $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1200).animate({opacity:0},800)
 };
@@ -224,7 +241,7 @@ function suss_game(){
 
 //boss哭
 function boss_cry(){
-  var suss_boss = random(1,3);
+  var suss_boss = random(1,4);
   $("#game_boss").addClass("boss_over_"+suss_boss).delay(1300).animate({opacity:0},700);
 }
 
