@@ -218,8 +218,9 @@ opacity: 0.8;
 
 /*未测*/
 @media only screen and (device-width:720px) and (device-height:1280px) {
+	#start_div{border:1px solid red;}
 	#pop_div{height:80%;}
-	#game_boss_pane{margin-top:-7%;}
+	#game_boss_pane{margin-top:-10%;}
 	#game_pane{height:86%;}
 	#boss_talk{margin-top:12%;}
 	.fail_box{height:58%;}
@@ -230,13 +231,15 @@ opacity: 0.8;
 }
 /*未测*/
 @media only screen and (device-width:1080px) and (device-height:1776px) {
+	#start_div{border:1px solid blue;}
 	#pop_div{height:85%;}
 	#scorebar{margin-top:6%;}
 	#game_pane{height:86%;}
 	#boss_talk{margin-top:14%;}
-	#guide_bz{margin-top:30%;}
 	#guide_txt{height:26%;}
-	.fail_box{height:51%;}
+	.fail_box{height:58%;}
+	#gfail_box{margin-top:38%;}
+	#boss_talk_succ{margin:-20% 0 0 38%;}
 	.killnum02{font-size:3.4em;margin:24% 0 0 54%;}
 }
 
