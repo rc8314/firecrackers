@@ -17,8 +17,6 @@ $(function(){
 
   //页面加载完毕淡入
   $("#loadmask").fadeOut(2000);
-  setTimeout(loop_play,2000);
-
 		
 
   //mask resize
@@ -168,6 +166,11 @@ var gheight = $(window).height() / 100 * 90 / 100 * 34;
 var svgheight = $(window).height() / 100 * 48 / 100 * 70;
 var svgwidth = $(window).width() / 100 * 83;
 
+if (window.screen.height == 480){
+	gwidth = $(window).width() / 100 * 69;
+	gheight = $(window).height() / 100 * 90 / 100 * 28;
+}
+
 //设置svg引导画布高宽
 $("#guide_mm svg").attr('width', svgwidth).attr('height', svgheight);
 //设置svg画布高宽
@@ -263,10 +266,16 @@ function ck_state(cc){
   $("#hoverpane").hide();
   if (cc==0){
     share_num = 0;
-    $("#mask_div,#pop_div,#all_fail").show();
+    $("#game_boss").hide();
+    $("#gfail_box").animate({opacity:1,height:'50%',marginTop:'48%'},700).delay(2000).animate({opacity:0,height:'4%',marginTop:'42%'},100);
+    $("#boss_talk_succ").delay(800).animate({opacity:1},300).delay(1700).animate({opacity:0},100);
+    $("#mask_div,#pop_div,#all_fail").delay(3000).fadeIn('fast');
   }else{
     share_num = cc;
-    $("#mask_div,#pop_div,#def_fail").show();
+    $("#game_boss").hide();
+    $("#gfail_box").animate({opacity:1,height:'52%',marginTop:'48%'},700).delay(2800).animate({opacity:0,height:'4%',marginTop:'42%'},100);
+    $("#boss_talk_succ").delay(800).animate({opacity:1},300).delay(2500).animate({opacity:0},100);
+    $("#mask_div,#pop_div,#def_fail").delay(3000).fadeIn('fast');
   }
 }
 

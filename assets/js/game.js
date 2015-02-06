@@ -27,6 +27,8 @@ var
 var game = {
     // 游戏状态
     status: 'off',
+    //失败后在preesup
+    fail_pressup: 'off',
     // 初始化游戏
     init: function () {
         game.status = 'on';
@@ -56,6 +58,7 @@ var game = {
                 fire.center(point.x, point.y);
 
                 if (point.y > areaArray[3]) {
+                    game.fail_pressup = 'on';
                     game.fail();
                 }
             });
@@ -63,11 +66,13 @@ var game = {
     // 结束游戏
     stop: function () {
         path.pause();
-
-        if (point.y >= areaArray[1] && point.y <= areaArray[3]) {
-            game.succ();
-        } else {
-            game.fail();
+        if (game.fail_pressup == 'off')
+        {
+          if (point.y >= areaArray[1] && point.y <= areaArray[3]) {
+                   game.succ();
+              } else {
+                   game.fail();
+              }
         }
     },
     // 挑战成功
@@ -83,7 +88,8 @@ var game = {
     // 挑战失败
     fail: function () {
         console.log('fail');
-
+        game.fail_pressup = 'off';
+        path.pause();
         $(".kill_num").html(count);
 
         // 开始失败
