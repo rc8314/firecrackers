@@ -1,7 +1,5 @@
-var loop_audio = new Audio;
-loop_audio.src = "./assets/loop.mp3";
-loop_audio.preload = "auto";
-loop_audio.loop = "loop";
+var bom_music = document.getElementById("bom_audio");
+var fire_music = document.getElementById("fire_audio");
 
 var share_num = 0;
 var weiimgurl = 'http://firecrackers.smarteric.cn/demo/assets/img/sharemin.png';
@@ -252,6 +250,7 @@ function boss_animate(){
 //旋转鞭炮
 function rotate(rotate_name) {
 	$(rotate_name).show().animate({rotate: '360',marginTop:'50%'}, 600).delay(300).fadeOut('fast');
+  bom_music.play();
 }
 
 
@@ -281,6 +280,9 @@ function ck_state(cc){
   }
 }
 
-function loop_play(){
-  loop_audio.play()
+function toggleSound() { 
+        var loop_music = document.getElementById("loop_audio");//获取ID
+        if (loop_music.paused) { //判读是否播放
+                loop_music.play(); //没有就播放
+        } 
 }

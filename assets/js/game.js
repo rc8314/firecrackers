@@ -59,7 +59,7 @@ var game = {
     // 开始游戏
     start: function () {
         console.log('start');
-
+        fire_music.play();
         // 显示燃烧动画
         fire.opacity(1);
 
@@ -83,7 +83,7 @@ var game = {
     // 结束游戏
     stop: function () {
         console.log('stop');
-
+        fire_music.pause();
         path.stop();
 
         if (point.y >= areaArray[1] && point.y <= areaArray[3]) {
@@ -95,7 +95,7 @@ var game = {
     // 挑战成功
     succ: function () {
         console.log('succ: ' + (count + 1));
-
+        fire_music.pause();
         $("#hoverpane").hide();
 
         count++;
