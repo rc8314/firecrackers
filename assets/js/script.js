@@ -214,8 +214,8 @@ function play_again(){
 function boss_enter(){
   var boss_id = random(1,4);
   var boss_talk = random(1,4);
-  $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"41.5%",opacity:1},1400);
-  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1200).animate({opacity:1},2000).delay(1200).animate({opacity:0},800)
+  $("#game_boss").addClass("boss_"+boss_id).animate({height:"22%",marginTop:"41.5%",opacity:1},1100);
+  $("#boss_talk").addClass("boss_talk_"+boss_talk).delay(1100).animate({opacity:1},2000).delay(1000).animate({opacity:0},400)
 };
 
 
@@ -246,7 +246,7 @@ function boss_animate(){
   $("#game_sky").after("<div id='boss_talk'></div>");
   boss_enter();
   $("#scorebar div").html(count + 1);
-  setTimeout(game.init,1400);
+  setTimeout(game.init,1200);
 }
 
 
