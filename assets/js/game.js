@@ -144,8 +144,10 @@ function createArea (x1, y1, x2, y2, count) {
     /* 计算白色安全区域 */
 
     var
+        //白色区域减幅数值，为0时每过一关区域高度递减1,即下方45-count(count为当前关卡数),建议这里最大设置值5。
+        white_step = 5,
         // 计算白色区域的高度
-        step = 45 - count,
+        step = 45 - count - white_step,
         // 红线的位置
         yt = random(y1, y2 - step);
     
