@@ -32,7 +32,7 @@ var game = {
         //console.log('init');
 
         createPath(0, 55 / 2, 94, 204 + 14);
-        createArea(-300, 55, vWidth + 300, 204 - 20, count);
+        createArea(-300, 55, vWidth + 300, 204, count);
 
         // 显示基础图片
         group = draw.group().x(vWidth * 0.5 - 70);
@@ -142,29 +142,42 @@ function createPath (x1, y1, x2, y2) {
 
 function createArea (x1, y1, x2, y2, count) {
     /* 计算白色安全区域 */
-    var yt = random(y1, y2);
-    var step = 45 - count;
+
+    var
+        // 计算白色区域的高度
+        step = 45 - count,
+        // 红线的位置
+        yt = random(y1, y2 - step);
     
     areaArray = [x1, yt, x2, yt + (step > 25 ? step : 25)];
 }
 
 function getSpeed (count) {
-    /* 计算燃烧时间 */
+    /* 计算燃烧时间，调整时间的时候要先自己计算下第15关的燃烧时间是否合理 */
 
-    var speed = 3000;
-    // 200 -> 150 -> 100 -> 50
+    var 
+        // 初始化燃烧时间为3秒
+        speed = 3000,
+        // 前3关递减量
+        step1 = 200,
+        // 3至10关递减量
+        step2 = 150,
+        // 10至15递减量
+        step3 = 100,
+        // 15关之后递减量
+        step4 = 50;
 
-    if (count < 3) {
-        speed = speed - 200 * count;
+    if (count >= 0) {
+        speed = speed - step1 * (count < 3 ? count : 2);
     }
-    if (count >= 3 && count < 10) {
-        speed = speed - 150 * (count - 3);
+    if (count >= 3) {
+        speed = speed - step2 * ((count < 10 ? count : 9)  - 2);
     }
-    if (count >= 10 && count < 15) {
-        speed = speed - 100 * (count - 10);
+    if (count >= 10) {
+        speed = speed - step3 * ((count < 15 ? count : 14) - 9);
     }
     if (count >= 15) {
-        speed = speed - 50 * (count - 15);
+        speed = speed - step4 * (count - 14);
     }
 
     return speed > 100 ? speed : 100;
